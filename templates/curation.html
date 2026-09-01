@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>템플릿 E · 취향 큐레이션형 — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="물건이 아니라 안목과 맥락을 파는 취향 큐레이션형 브랜딩 홈페이지 템플릿 샘플">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 취향 큐레이션형 전용 ---------- */
+.hero{padding:168px 0 72px}
+.hero-role{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--beige);margin-bottom:14px}
+.hero h1{font-size:clamp(30px,5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.35}
+.hero h1 em{font-style:normal;color:var(--beige)}
+.hero .sub{font-size:clamp(15px,1.9vw,18px);color:var(--text-secondary);margin-top:20px;line-height:1.8;max-width:620px}
+
+/* 큐레이터의 관점 — 에세이 한 토막 */
+.pov{max-width:680px;border-left:3px solid var(--beige);padding:6px 0 6px 24px;margin-top:48px}
+.pov p{font-size:clamp(16px,2vw,19px);font-weight:600;line-height:1.85;color:var(--text-secondary)}
+.pov p em{font-style:normal;color:var(--beige)}
+.pov .by{margin-top:12px;font-size:13px;font-weight:700;color:var(--text-muted)}
+
+/* 컬렉션 그리드 — 카드마다 '왜 이것인가' 서사 */
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.col-body{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.col-title{font-size:16.5px;font-weight:700;line-height:1.6;margin-bottom:7px}
+.col-sub{font-size:13px;color:var(--text-muted);line-height:1.6}
+/* 큐레이터 노트: 평소엔 접혀 있다가 호버 시 드러나는 '안목'의 문장 */
+.col-note{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);
+  font-size:13px;line-height:1.7;color:var(--text-secondary)}
+.col-note b{color:var(--beige);font-weight:700;display:block;font-size:11.5px;letter-spacing:.08em;margin-bottom:4px}
+
+.center{text-align:center}
+.contact-sec{text-align:center;border-top:1px solid var(--border)}
+.contact-headline{font-size:clamp(22px,3.4vw,32px);font-weight:700;margin-bottom:12px}
+.contact-headline em{font-style:normal;color:var(--beige)}
+.contact-desc{color:var(--text-secondary);margin-bottom:36px}
+
+@media (max-width:960px){.col-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.hero{padding:128px 0 56px}.col-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 템플릿 <span>E</span> · 취향 큐레이션형</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#pov">Perspective</a>
+      <a href="#collection">Collection</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <p class="hero-role">Taste &amp; Curation</p>
+    <h1>물건이 아니라<br><em>안목</em>을 팝니다</h1>
+    <p class="sub">좁고 깊게 파는 것이 가격 경쟁에서 빠져나오는 거의 유일한 출구입니다.
+      무엇을 골랐는지보다, <strong>왜 골랐는지</strong>를 보여주는 큐레이션형 홈페이지.</p>
+
+    <div class="pov reveal" id="pov">
+      <p>큐레이션은 진열이 아니라 <em>관점의 편집</em>입니다.
+        하나의 장면 아래 모인 것들은 서로의 맥락이 되어주고,
+        방문자는 목록이 아니라 시선을 얻어 갑니다.</p>
+      <p class="by">— 큐레이터의 노트</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee reveal" aria-hidden="true">
+  <div class="marquee-track rev" style="--mq-dur:65s">
+    <span class="marquee-item">CURATION</span>
+    <span class="marquee-item"><em>PERSPECTIVE</em></span>
+    <span class="marquee-item">CONTEXT</span>
+    <span class="marquee-item"><em>NARROW &amp; DEEP</em></span>
+    <span class="marquee-item">SCENE</span>
+    <span class="marquee-item"><em>TASTE</em></span>
+    <span class="marquee-item">DESTINATION</span>
+  </div>
+</div>
+
+<section id="collection" class="reveal">
+  <div class="container">
+    <div class="center"><p class="section-label">Collection</p>
+    <h2 class="section-title">장면으로 고른 작업들</h2></div>
+    <div class="filter" id="filter" role="tablist"></div>
+    <div class="col-grid" id="colGrid"></div>
+  </div>
+</section>
+
+<section class="contact-sec reveal" id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="contact-headline">당신의 취향에 <em>맥락</em>을 더해드립니다</h2>
+    <p class="contact-desc">큐레이션·브랜딩·콘텐츠 전략 제안 모두 환영합니다.</p>
+    <a class="pill-cta" href="mailto:yourpotential0100@gmail.com">협업 시작하기</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">템플릿 E · 취향 큐레이션형 — <a href="../index.html">쇼케이스 허브로 돌아가기</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+<script>
+/* 컬렉션 데이터 — cat: 큐레이션 '장면' 분류, note: 큐레이터의 '왜 이것인가' */
+const categoryLabels = { grow: '성장의 장면', gather: '모임의 장면', tell: '이야기의 장면' };
+const items = [
+  { id: 'kmong-portfolio', cat: 'grow', img: 'work-kmong-800',
+    title: '크몽 포트폴리오 컨설턴트', sub: '카테고리 1위를 놓치지 않은 전문가',
+    note: '커리어의 다음 문장을 함께 쓰는 일 — 성장의 출발점으로 골랐습니다.' },
+  { id: 'univ-lecture', cat: 'grow', img: 'work-univ-800',
+    title: '대학교 포트폴리오 강의', sub: '한성대, 청강문화산업대, 동덕여대 등',
+    note: '처음 포트폴리오를 마주하는 순간의 막막함을 풀어주는 장면.' },
+  { id: 'career-lecture', cat: 'grow', img: 'work-lecture-800',
+    title: '커리어 & 진로 강의 200회+', sub: '청소년, 대학생, 직장인의 방향성 찾기',
+    note: '방향을 잃었을 때 꺼내 보는 지도 같은 시간이라 여기에 두었습니다.' },
+  { id: 'lantern-camping', cat: 'gather', img: 'work-lantern-800',
+    title: '랜턴캠핑 & 프립 오리지널', sub: '비대면 토크 콘서트부터 투어까지',
+    note: '랜턴 하나로 천 명이 모이는 밤 — 모임의 밀도가 가장 짙은 장면.' },
+  { id: 'hfk-careerplan', cat: 'gather', img: 'work-hfk-career-800',
+    title: 'HFK 커리어플랜 & 커리어캠프', sub: '실무 리더들의 자기성장 커뮤니티',
+    note: '같은 방향을 보는 사람들이 계절마다 다시 모이는 이유를 담았습니다.' },
+  { id: 'ddanjit-workshop', cat: 'gather', img: 'work-ddanjit-ws-800',
+    title: '딴짓워크샵', sub: '경험의 총합에서 시작점을 찾는 원데이',
+    note: '딴짓이라는 말 속의 애정 — 곁길이 본길이 되는 순간의 기록.' },
+  { id: 'sqnc', cat: 'tell', img: 'work-sqnc-800', pos: 'center 30%',
+    title: 'SQNC | 시퀀스', sub: '감도 높은 공간과 경험',
+    note: '영감과 감동이 있는 경험을 한국형 Fine Experience로 정의한 장면.' },
+  { id: 'sebasi', cat: 'tell', img: 'work-sebasi-800',
+    title: '세바시 강연회 & 유튜브 총괄', sub: '골드버튼과 1억 뷰의 무대 뒤',
+    note: '무대 위 15분이 누군가의 인생을 바꾸는 것을 목격한 시간.' },
+  { id: 'hfk-content', cat: 'tell', img: 'work-hfk-content-800',
+    title: 'HFK 콘텐츠기획 파트너', sub: '나만의 콘텐츠 주제와 포맷 찾기',
+    note: '반복된 관심사가 콘텐츠가 되는 과정을 지켜보는 즐거움.' }
+];
+
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+let curFilter = 'all';
+
+function renderFilter(){
+  const cats = [['all','전체'], ...Object.entries(categoryLabels)];
+  document.getElementById('filter').innerHTML = cats.map(([k,label]) =>
+    `<button role="tab" data-cat="${k}" aria-selected="${k===curFilter}" class="${k===curFilter?'active':''}">${esc(label)}</button>`).join('');
+}
+
+function renderGrid(){
+  const list = items.filter(w => curFilter === 'all' || w.cat === curFilter);
+  document.getElementById('colGrid').innerHTML = list.map(w => `
+    <article class="fx-card">
+      <a href="https://www.pertential100.com/works/${w.id}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;flex:1">
+        <span class="fx-frame"><img src="../img/${w.img}.webp" alt="${esc(w.title)}" loading="lazy"${w.pos ? ` style="--cover-pos:${w.pos}"` : ''}><span class="fx-glow"></span><span class="fx-cta">자세히 보기 →</span></span>
+        <span class="col-body">
+          <span class="fx-tag">${esc(categoryLabels[w.cat])}</span>
+          <h3 class="col-title">${esc(w.title)}</h3>
+          <p class="col-sub">${esc(w.sub)}</p>
+          <span class="col-note"><b>WHY THIS</b>${esc(w.note)}</span>
+        </span>
+      </a>
+    </article>`).join('');
+  if (window.fxFilterAppear) fxFilterAppear(document.getElementById('colGrid').children);
+}
+
+document.getElementById('filter').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  curFilter = b.dataset.cat;
+  renderFilter(); renderGrid();
+});
+renderFilter(); renderGrid();
+</script>
+</body>
+</html>

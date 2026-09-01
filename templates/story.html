@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>템플릿 C · 스토리텔링 강조형 — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="브랜드의 철학과 세계관으로 공감을 만드는 스토리텔링 강조형 브랜딩 홈페이지 템플릿 샘플">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 스토리텔링 강조형 전용 ---------- */
+/* 중앙 정렬 인용구 히어로 — 스파크 필드 위에서 문장이 주인공 */
+.s-hero{padding:200px 0 120px;text-align:center}
+.s-hero .hero-role{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--beige);margin-bottom:26px}
+.s-quote{font-size:clamp(30px,5vw,54px);font-weight:800;letter-spacing:-0.02em;line-height:1.45}
+.s-quote em{font-style:normal;color:var(--beige)}
+.s-hero .sub{font-size:clamp(15px,1.8vw,18px);color:var(--text-secondary);margin-top:26px;line-height:1.8}
+
+/* 철학 문단 — 한 문장씩 리빌 */
+.creed{max-width:680px;margin:0 auto;text-align:center}
+.creed p{font-size:clamp(17px,2.2vw,22px);font-weight:600;line-height:1.9;color:var(--text-secondary)}
+.creed p + p{margin-top:34px}
+.creed p strong{color:var(--text-primary);font-weight:700}
+.creed p em{font-style:normal;color:var(--beige)}
+
+/* 여정 타임라인 — 세로 스토리 */
+.journey{max-width:640px;margin:0 auto;position:relative;padding-left:34px}
+.journey::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:var(--border)}
+.journey li{position:relative;padding-bottom:34px}
+.journey li:last-child{padding-bottom:0}
+.journey li::before{content:'';position:absolute;left:-30px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--beige)}
+.j-period{font-size:13.5px;font-weight:600;color:var(--beige);font-variant-numeric:tabular-nums}
+.j-role{font-size:17px;font-weight:700;margin-top:2px}
+.j-note{font-size:14px;color:var(--text-secondary);margin-top:4px;line-height:1.7}
+
+/* 역할 카드 — 베이지 top-border */
+.role-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;
+  border-top:3px solid var(--beige);padding:24px;display:flex;flex-direction:column;gap:12px}
+.role-num{font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--text-muted)}
+.role-title{font-size:17px;font-weight:700;line-height:1.6}
+.role-points{display:flex;flex-direction:column;gap:8px}
+.role-points li{position:relative;padding-left:14px;font-size:13.5px;color:var(--text-secondary);line-height:1.6}
+.role-points li::before{content:'';position:absolute;left:0;top:0.5em;width:5px;height:5px;border-radius:50%;background:var(--beige)}
+
+/* 인터뷰 링크 */
+.iv-list{display:flex;flex-direction:column;gap:14px;max-width:640px;margin:0 auto}
+.iv-list a{font-size:15px;font-weight:600;color:var(--text-secondary);transition:color .2s}
+.iv-list a:hover{color:var(--accent)}
+.iv-list .tl-txt{text-decoration:underline;text-decoration-color:rgba(255,255,255,0.35);text-underline-offset:3px;transition:text-decoration-color .2s}
+.iv-list a:hover .tl-txt{text-decoration-color:var(--accent)}
+.iv-list .tl-arr{color:var(--beige);margin-left:2px}
+
+.center{text-align:center}
+.contact-sec{text-align:center;border-top:1px solid var(--border)}
+.contact-headline{font-size:clamp(22px,3.4vw,32px);font-weight:700;margin-bottom:12px}
+.contact-headline em{font-style:normal;color:var(--beige)}
+.contact-desc{color:var(--text-secondary);margin-bottom:36px}
+
+@media (max-width:960px){.role-cards{grid-template-columns:1fr}}
+@media (max-width:768px){.s-hero{padding:150px 0 80px}}
+</style>
+</head>
+<body>
+
+<div id="spark-field" aria-hidden="true"></div>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 템플릿 <span>C</span> · 스토리텔링 강조형</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#creed">Creed</a>
+      <a href="#journey">Journey</a>
+      <a href="#roles">Roles</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="s-hero" id="home">
+  <div class="container">
+    <p class="hero-role">Creator IP Builder · 조재형</p>
+    <blockquote class="s-quote">“우리는 언젠가<br><em>브랜드</em>가 됩니다”</blockquote>
+    <p class="sub">그동안 쌓아온 시간과 경험 속에는<br>대체되지 않는 고유한 세계가 형성돼 있습니다.</p>
+  </div>
+</section>
+
+<section id="creed" class="reveal" style="padding-top:24px">
+  <div class="container">
+    <div class="creed">
+      <p class="reveal">개인의 이야기를 듣고 여러분 마음 속의 <em>‘스파크’</em>를 찾아내는 일을 해왔습니다.</p>
+      <p class="reveal">하루하루 불확실한 일상에서 <strong>흔들리지 않고 나만의 길을 걸어갈 수 있는 솔루션</strong>을 함께 만들어나갑니다.</p>
+      <p class="reveal">브랜드가 만들어갈 경험이 고객의 삶과 가치관을 얼마나 바꿔낼 수 있을지 고민합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee reveal" aria-hidden="true">
+  <div class="marquee-track" style="--mq-dur:50s">
+    <span class="marquee-item">IP를 키우는 <em>IP</em></span>
+    <span class="marquee-item">15년째 기획하는 사람</span>
+    <span class="marquee-item">기자</span>
+    <span class="marquee-item">PD</span>
+    <span class="marquee-item">리드</span>
+    <span class="marquee-item">CPO</span>
+    <span class="marquee-item">에디터</span>
+    <span class="marquee-item">저자</span>
+    <span class="marquee-item"><em>그리고, 당신의 스파크</em></span>
+  </div>
+</div>
+
+<section id="journey" class="reveal">
+  <div class="container">
+    <div class="center"><p class="section-label">Journey</p>
+    <h2 class="section-title">15년째 기획하는 사람</h2></div>
+    <ul class="journey">
+      <li class="reveal"><p class="j-period">2012 - 2015</p><p class="j-role">스포츠서울닷컴 기자</p><p class="j-note">이야기를 찾아내는 훈련의 시작.</p></li>
+      <li class="reveal"><p class="j-period">2015 - 2019</p><p class="j-role">파이낸셜뉴스 기자</p><p class="j-note">사람과 산업의 맥락을 읽는 눈을 키웠습니다.</p></li>
+      <li class="reveal"><p class="j-period">2019 - 2021</p><p class="j-role">세바시 콘텐츠제작팀 리드(PD)</p><p class="j-note">무대 위의 이야기가 삶을 바꾸는 순간을 만들었습니다.</p></li>
+      <li class="reveal"><p class="j-period">2021 - 2024</p><p class="j-role">프렌트립 시퀀스팀 리드</p><p class="j-note">영감과 감동이 있는 경험을 브랜드로 빚었습니다.</p></li>
+      <li class="reveal"><p class="j-period">2024 - 현재</p><p class="j-role">퍼텐셜100 대표</p><p class="j-note">개인이 브랜드로 성장하는 여정을 함께 걷습니다.</p></li>
+      <li class="reveal"><p class="j-period">2026 - 현재</p><p class="j-role">GAMDO CPO · 비버 매거진 에디터</p><p class="j-note">크리에이터와 스몰브랜드의 세계관을 넓힙니다.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="roles" class="reveal" style="padding-top:0">
+  <div class="container">
+    <div class="center"><p class="section-label">Roles</p>
+    <h2 class="section-title">이런 일들을 합니다</h2></div>
+    <div class="role-cards">
+      <article class="card reveal">
+        <p class="role-num">01</p>
+        <h3 class="role-title">커리어 포트폴리오 컨설턴트</h3>
+        <ul class="role-points"><li>크몽 ‘이직 포트폴리오’ 1위</li><li>Master, Prime 등급 전문가</li><li>2년간 700건+ 작업, 평점 4.9/5.0 유지</li><li>신입부터 C레벨까지 다양한 직무 제작</li></ul>
+      </article>
+      <article class="card reveal">
+        <p class="role-num">02</p>
+        <h3 class="role-title">크리에이터 벤처 스튜디오<br>‘GAMDO’ CPO</h3>
+        <ul class="role-points"><li>크리에이터 IP 발굴 및 브랜딩</li><li>크리에이터 브랜드 소개서 컨설팅</li><li>크리에이터별 시그니처 경험 기획</li><li>다양한 협업 기회 연결</li></ul>
+      </article>
+      <article class="card reveal">
+        <p class="role-num">03</p>
+        <h3 class="role-title">‘비버 매거진’ 에디터</h3>
+        <ul class="role-points"><li>스몰브랜드 성장 스토리텔링</li><li>브랜드별 맞춤형 소개서 컨설팅</li><li>브랜드 스토리 기반 콘텐츠 기획</li><li>브랜드 0 to 1 성장 솔루션 도출</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="reveal" style="padding-top:0">
+  <div class="container">
+    <div class="center"><p class="section-label">Interviews</p>
+    <h2 class="section-title">이야기의 기록</h2></div>
+    <ul class="iv-list">
+      <li><a href="https://www.folin.co/linker/1335" target="_blank" rel="noopener"><span class="tl-txt">폴인 아티클 (2024)</span> <span class="tl-arr">↗</span></a></li>
+      <li><a href="https://blog.kmong.com/%EC%9D%B8%ED%84%B0%EB%B7%B0-11th-%ED%94%84%EB%A1%9C-%EB%94%B4%EC%A7%93%EB%9F%AC-%EC%A1%B0%EC%9E%AC%ED%98%95-%EB%8B%98-e3403a8881b9" target="_blank" rel="noopener"><span class="tl-txt">콘텐츠 전문가 ‘조재형’ 님 (2021)</span> <span class="tl-arr">↗</span></a></li>
+      <li><a href="https://brunch.co.kr/@rory/554" target="_blank" rel="noopener"><span class="tl-txt">딴짓하라 / 세바시 조재형 PD (2021)</span> <span class="tl-arr">↗</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=Rq8QxhJtAHc&t=311s" target="_blank" rel="noopener"><span class="tl-txt">요즘 것들의 사생활 인터뷰 (2020)</span> <span class="tl-arr">↗</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact-sec reveal" id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="contact-headline">여러분의 <em>‘스파크’</em>를 찾아드립니다</h2>
+    <p class="contact-desc">포트폴리오 컨설팅, 브랜딩, 강의·워크숍 제안 모두 환영합니다.</p>
+    <a class="pill-cta" href="mailto:yourpotential0100@gmail.com">협업 시작하기</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">템플릿 C · 스토리텔링 강조형 — <a href="../index.html">쇼케이스 허브로 돌아가기</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+</body>
+</html>
