@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유형 2 · 프로덕트 몰입형 — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="Apple·Tesla·현대카드 계열 — 제품이 곧 레이아웃이 되는 프로덕트 몰입형 랜딩 샘플">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 프로덕트 몰입형 테마 (ref: Apple / Tesla / 현대카드 / LG전자 / 유니클로) ----------
+   공식: 흰 배경 + #F5F5F7 교차 슬라이드, 중앙 정렬 대형 헤드라인과 최소한의 카피,
+   제품(여기선 '책'과 '강의')이 화면을 가득 채운다. 크롬은 무채색, 링크만 시그니처 블루. */
+:root{
+  --bg:#FFFFFF;
+  --surface:#F5F5F7;
+  --card-bg:#FFFFFF;
+  --text-primary:#1D1D1F;
+  --text-secondary:rgba(29,29,31,0.72);
+  --text-muted:rgba(29,29,31,0.5);
+  --accent:#1D1D1F;
+  --accent-contrast:#FFFFFF;
+  --accent-light:rgba(29,29,31,0.06);
+  --border:rgba(29,29,31,0.1);
+  --fx-accent:#0071E3;          /* 시그니처 블루 — 링크와 CTA에만 */
+  --fx-accent-ink:#FFFFFF;
+  --nav-bg:rgba(255,255,255,0.82);
+  --radius:18px;
+}
+.nav-links a{color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-cta{background:var(--fx-accent);color:#fff}
+
+/* 제품 슬라이드 — 풀블리드에 가까운 교차 배경 섹션, 중앙 정렬 */
+.slide{text-align:center;padding:110px 0 0;overflow:hidden}
+.slide.alt{background:var(--surface)}
+.slide .kicker{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+.slide h2{font-size:clamp(34px,6vw,64px);font-weight:700;letter-spacing:-0.025em;line-height:1.16;margin-top:10px}
+.slide .tag{font-size:clamp(17px,2.3vw,24px);font-weight:500;color:var(--text-secondary);margin-top:10px}
+.slide .links{margin-top:18px;display:flex;gap:26px;justify-content:center}
+.slide .links a{font-size:15px;font-weight:500;color:var(--fx-accent)}
+.slide .links a:hover{text-decoration:underline}
+.slide .links .buy{background:var(--fx-accent);color:#fff;padding:9px 20px;border-radius:999px}
+.slide .links .buy:hover{text-decoration:none;filter:brightness(1.08)}
+.slide .visual{margin:54px auto 0;max-width:760px;padding:0 40px}
+.slide .visual img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:var(--cover-pos,center);
+  border-radius:var(--radius) var(--radius) 0 0;box-shadow:0 30px 70px -30px rgba(29,29,31,.35)}
+/* 이미지가 아래에서 떠오르는 몰입 리빌 */
+.slide .visual.reveal{transform:translateY(60px)}
+.slide .visual.reveal.in{transform:none}
+
+/* 히어로 — 선언 한 줄 + 제품 */
+.hero-slide{padding-top:150px}
+.hero-slide h1{font-size:clamp(40px,7.4vw,80px);font-weight:700;letter-spacing:-0.03em;line-height:1.1}
+
+/* 그리드 듀오 — 애플식 반반 타일 */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 14px 0}
+.duo .cell{background:var(--surface);border-radius:var(--radius);text-align:center;padding:64px 30px 0;overflow:hidden}
+.duo .cell.dark{background:#1D1D1F;color:#fff}
+.duo .cell.dark .k{color:rgba(255,255,255,.55)}
+.duo .cell.dark h3{color:#fff}
+.duo .cell .k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+.duo .cell h3{font-size:clamp(22px,2.8vw,30px);font-weight:700;letter-spacing:-0.02em;margin-top:8px}
+.duo .cell p{font-size:14px;color:inherit;opacity:.72;margin-top:6px}
+.duo .cell a.more{display:inline-block;margin-top:12px;color:var(--fx-accent);font-size:14px;font-weight:500}
+.duo .cell .ph{margin:34px auto 0;max-width:380px}
+.duo .cell .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px 12px 0 0}
+
+/* 스펙 밴드 — 얇고 조용한 수치 */
+.spec{display:flex;justify-content:center;gap:70px;padding:84px 0;flex-wrap:wrap;text-align:center}
+.spec b{display:block;font-size:clamp(34px,4.6vw,54px);font-weight:700;letter-spacing:-0.02em}
+.spec span{font-size:13.5px;color:var(--text-muted)}
+
+.contact-sec{text-align:center;background:#1D1D1F;color:#fff;padding:120px 0}
+.contact-sec h2{font-size:clamp(28px,4.6vw,46px);font-weight:700;letter-spacing:-0.02em;margin-bottom:14px}
+.contact-sec p{color:rgba(255,255,255,.6);margin-bottom:34px}
+.contact-sec .pill-cta{background:var(--fx-accent);color:#fff}
+.contact-sec .pill-cta:hover{background:#fff;color:#1D1D1F}
+
+footer{border-top:1px solid var(--border)}
+
+@media (max-width:768px){
+  .hero-slide{padding-top:118px}
+  .slide{padding-top:80px}
+  .slide .visual{padding:0 22px}
+  .duo{grid-template-columns:1fr;padding:14px 14px 0}
+  .spec{gap:36px;padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 유형 <span>2</span> · 프로덕트 몰입형</a>
+    <div class="nav-links">
+      <a href="#books">Books</a>
+      <a href="#service">Service</a>
+      <a href="#spec">Numbers</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="slide hero-slide" id="home" style="padding-bottom:0">
+  <div class="container">
+    <p class="kicker">Creator IP Builder — 조재형</p>
+    <h1>경험을,<br>작품으로.</h1>
+    <p class="tag">포트폴리오 하나가 커리어의 방향을 바꿉니다.</p>
+    <div class="links">
+      <a class="buy" href="mailto:yourpotential0100@gmail.com">컨설팅 신청</a>
+      <a href="#books">더 알아보기 →</a>
+    </div>
+  </div>
+  <div class="visual reveal"><img src="../img/profile-800.webp" alt="조재형 프로필" style="--cover-pos:center 25%"></div>
+</section>
+
+<section class="slide alt" id="books" style="padding-bottom:0">
+  <div class="container">
+    <p class="kicker">Book 01</p>
+    <h2>작은 브랜드<br>전성시대가 온다</h2>
+    <p class="tag">개인이 브랜드가 되는 시대의 생존 전략.</p>
+    <div class="links">
+      <a href="https://www.pertential100.com/" target="_blank" rel="noopener">자세히 보기 →</a>
+    </div>
+  </div>
+  <div class="visual reveal"><img src="../img/book-smallbrand-800.webp" alt="작은 브랜드 전성시대가 온다" loading="lazy"></div>
+</section>
+
+<section class="slide" style="padding-bottom:0">
+  <div class="container">
+    <p class="kicker">Book 02</p>
+    <h2>딴짓의 힘</h2>
+    <p class="tag">곁길이 본길이 되는 순간의 기록. 교보문고 트렌드 도서.</p>
+    <div class="links">
+      <a href="https://www.pertential100.com/" target="_blank" rel="noopener">자세히 보기 →</a>
+    </div>
+  </div>
+  <div class="visual reveal"><img src="../img/book-ddanjit-800.webp" alt="딴짓의 힘" loading="lazy"></div>
+</section>
+
+<div class="duo" id="service">
+  <div class="cell reveal">
+    <p class="k">Consulting</p>
+    <h3>이직 포트폴리오</h3>
+    <p>크몽 카테고리 1위 · 유일 PRIME 등급</p>
+    <a class="more" href="https://www.pertential100.com/works/kmong-portfolio" target="_blank" rel="noopener">자세히 보기 →</a>
+    <div class="ph"><img src="../img/work-kmong-800.webp" alt="크몽 포트폴리오 컨설팅" loading="lazy"></div>
+  </div>
+  <div class="cell dark reveal">
+    <p class="k">Lecture</p>
+    <h3>강의 & 워크숍</h3>
+    <p>대학·기업·커뮤니티 200회+</p>
+    <a class="more" href="https://www.pertential100.com/works/career-lecture" target="_blank" rel="noopener">자세히 보기 →</a>
+    <div class="ph"><img src="../img/work-lecture-800.webp" alt="커리어 강의" loading="lazy"></div>
+  </div>
+</div>
+
+<section class="spec reveal" id="spec">
+  <div><b><span class="gr-ticker" data-value="700" data-suffix="+">700+</span></b><span>포트폴리오 컨설팅</span></div>
+  <div><b><span class="gr-ticker" data-value="4.9" data-decimals="1">4.9</span></b><span>크몽 평점 / 5.0</span></div>
+  <div><b><span class="gr-ticker" data-value="200" data-suffix="+">200+</span></b><span>강의 · 워크숍</span></div>
+  <div><b><span class="gr-ticker" data-value="15" data-suffix="년">15년</span></b><span>기획 경력</span></div>
+</section>
+
+<section class="contact-sec reveal" id="contact">
+  <div class="container">
+    <h2>다음 커리어를 디자인하세요</h2>
+    <p>인터뷰 한 번이면 충분합니다. 나머지는 전략이 합니다.</p>
+    <a class="pill-cta" href="mailto:yourpotential0100@gmail.com">컨설팅 시작하기</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">유형 2 · 프로덕트 몰입형 (ref. Apple / Tesla / 현대카드 / LG전자 / 유니클로) — <a href="../index.html">쇼케이스 허브로</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유형 4 · 헤리티지 내러티브형 — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="신도리코·네이버·카카오 계열 — 브랜드 스토리를 제품보다 앞세우는 헤리티지 내러티브형 랜딩 샘플">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 헤리티지 내러티브형 테마 (ref: 신도리코 / 네이버 / 카카오 / 우아한형제들 / Lush) ----------
+   공식: 화이트 그라운드 + 절제된 코퍼레이트 액센트 1색. 히어로는 CTA 없는 브랜드 선언(국문 대형 헤드라인
+   + EN 슬로건 병기). 스토리 섹션들이 제품보다 먼저 온다. 모션은 조용한 페이드가 전부. */
+:root{
+  --bg:#FFFFFF;
+  --surface:#F7F8FA;
+  --card-bg:#FFFFFF;
+  --text-primary:#17191D;
+  --text-secondary:rgba(23,25,29,0.72);
+  --text-muted:rgba(23,25,29,0.48);
+  --accent:#17191D;
+  --accent-contrast:#FFFFFF;
+  --accent-light:rgba(23,25,29,0.06);
+  --border:rgba(23,25,29,0.12);
+  --fx-accent:#C8351F;          /* 절제된 시그니처 레드 — 아주 아껴 쓴다 */
+  --fx-accent-ink:#FFFFFF;
+  --nav-bg:rgba(255,255,255,0.9);
+  --radius:6px;
+}
+.nav-links a{color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text-primary)}
+
+/* 히어로 — CTA 없는 브랜드 선언 (신도리코의 슬로건 히어로) */
+.hero{padding:190px 0 120px;background:
+  linear-gradient(180deg,rgba(23,25,29,.02),transparent 55%)}
+.hero-en{font-size:13px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--fx-accent);margin-bottom:22px}
+.hero h1{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.45;max-width:820px}
+.hero .since{margin-top:30px;font-size:14px;color:var(--text-muted)}
+
+/* 스토리 챕터 — 좌 라벨 / 우 본문의 조용한 2단 */
+.chapter{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:72px 0;border-top:1px solid var(--border)}
+.chapter .no{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--text-muted)}
+.chapter .no em{font-style:normal;color:var(--fx-accent)}
+.chapter h2{font-size:clamp(21px,2.8vw,30px);font-weight:700;letter-spacing:-0.015em;line-height:1.5;margin-bottom:16px}
+.chapter p{color:var(--text-secondary);max-width:640px;line-height:1.85}
+.chapter .num-line{margin-top:26px;display:flex;gap:44px;flex-wrap:wrap}
+.chapter .num-line b{display:block;font-size:30px;font-weight:800;letter-spacing:-0.01em}
+.chapter .num-line span{font-size:13px;color:var(--text-muted)}
+
+/* 케이스 카드 3단 (신도리코 산업별 도입 사례 골격) */
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-grid .fx-card{box-shadow:0 1px 3px rgba(23,25,29,.06)}
+.case-body{padding:20px 22px 24px}
+.case-cat{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--fx-accent);text-transform:uppercase;margin-bottom:8px}
+.case-title{font-size:16px;font-weight:700;line-height:1.55;margin-bottom:6px}
+.case-sub{font-size:13px;color:var(--text-muted);line-height:1.65}
+
+/* 뉴스 리스트 (기업소식 골격) */
+.news{border-top:1px solid var(--border)}
+.news li{border-bottom:1px solid var(--border)}
+.news a{display:flex;gap:28px;align-items:baseline;padding:20px 4px;transition:background .2s}
+.news a:hover{background:var(--surface)}
+.news .date{font-size:13px;color:var(--text-muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.news .tit{font-size:15px;font-weight:600;flex:1}
+.news .arrow{color:var(--fx-accent);font-weight:700}
+
+/* 마무리 슬로건 리프라이즈 + CTA (신도리코의 slogan reprise) */
+.reprise{background:#17191D;color:#fff;text-align:center;padding:110px 0}
+.reprise .en{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+.reprise h2{font-size:clamp(22px,3.4vw,34px);font-weight:700;line-height:1.55;margin-bottom:34px}
+.reprise .pill-cta{background:#fff;color:#17191D}
+.reprise .pill-cta:hover{background:var(--fx-accent);color:#fff}
+
+.marquee-item{font-weight:600;letter-spacing:.06em}
+
+@media (max-width:960px){.case-grid{grid-template-columns:1fr;gap:16px}.chapter{grid-template-columns:1fr;gap:18px;padding:56px 0}}
+@media (max-width:768px){.hero{padding:140px 0 80px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 유형 <span>4</span> · 헤리티지 내러티브형</a>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#cases">Cases</a>
+      <a href="#news">News</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="home" style="padding-bottom:80px">
+  <div class="container">
+    <p class="hero-en">Expanding Experience, Empowering Career</p>
+    <h1>15년의 기획 위에,<br>당신의 경험을 다음 커리어로 만듭니다</h1>
+    <p class="since">Creator IP Builder 조재형 — 2011년부터 기획하는 사람</p>
+  </div>
+</section>
+
+<div class="marquee reveal" aria-hidden="true">
+  <div class="marquee-track" style="--mq-dur:55s">
+    <span class="marquee-item">크몽 <em>이직 포트폴리오 1위</em></span>
+    <span class="marquee-item">세바시</span>
+    <span class="marquee-item">GAMDO</span>
+    <span class="marquee-item">HFK</span>
+    <span class="marquee-item">프립</span>
+    <span class="marquee-item">한성대학교</span>
+    <span class="marquee-item">청강문화산업대</span>
+    <span class="marquee-item">동덕여대</span>
+    <span class="marquee-item">교보문고</span>
+    <span class="marquee-item">KT</span>
+    <span class="marquee-item">jtbc <em>차이나는 클라스</em></span>
+  </div>
+</div>
+
+<section id="story" style="padding-top:40px;padding-bottom:0">
+  <div class="container">
+
+    <div class="chapter reveal" style="border-top:none">
+      <p class="no"><em>01</em> — Heritage</p>
+      <div>
+        <h2>축적된 경험에, 번역의 기술을 더해</h2>
+        <p>세바시 유튜브 총괄, 프립 오리지널, 시퀀스 브랜딩까지 — 무대 뒤에서 콘텐츠와 커리어를
+          기획해온 15년. 그 축적이 지금은 한 사람 한 사람의 경험을 전략 문서로 번역하는 일이 되었습니다.</p>
+        <div class="num-line">
+          <div><b><span class="gr-ticker" data-value="15" data-suffix="년">15년</span></b><span>기획 경력</span></div>
+          <div><b><span class="gr-ticker" data-value="700" data-suffix="+">700+</span></b><span>포트폴리오 컨설팅</span></div>
+          <div><b><span class="gr-ticker" data-value="200" data-suffix="+">200+</span></b><span>강의 · 워크숍</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <p class="no"><em>02</em> — Vision</p>
+      <div>
+        <h2>사람의 경험과 직무의 언어가 만나</h2>
+        <p>구직자의 진짜 페인 포인트는 디자인이 아니라 자기 자신을 설명하는 일입니다.
+          인터뷰로 경험의 맥락을 구성하고, 직무가 요구하는 성장의 본질에 맞춰 다시 배열합니다.
+          포트폴리오는 PPT가 아니라 커리어 방향성을 함축하는 전략 문서입니다.</p>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <p class="no"><em>03</em> — Promise</p>
+      <div>
+        <h2>크몽 평점 4.9가 말하는 약속</h2>
+        <p>22개월 만에 상위 2% 전문가, 이직 포트폴리오 카테고리 유일 PRIME 등급.
+          숫자는 자랑이 아니라 다음 고객에게 드리는 품질 보증입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="cases" style="background:var(--surface)">
+  <div class="container">
+    <p class="section-label">Case Studies</p>
+    <h2 class="section-title">분야별 프로젝트 사례</h2>
+    <div class="case-grid reveal">
+      <article class="fx-card"><a href="https://www.pertential100.com/works/kmong-portfolio" target="_blank" rel="noopener">
+        <span class="fx-frame"><img src="../img/work-kmong-800.webp" alt="크몽 포트폴리오 컨설팅" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">사례 보기 →</span></span>
+        <span class="case-body"><span class="case-cat">Consulting</span>
+          <span class="case-title">크몽 이직 포트폴리오 1위</span>
+          <span class="case-sub">700건+ 컨설팅, 연 매출 1억을 만든 카테고리 대표 서비스</span></span>
+      </a></article>
+      <article class="fx-card"><a href="https://www.pertential100.com/works/sebasi" target="_blank" rel="noopener">
+        <span class="fx-frame"><img src="../img/work-sebasi-800.webp" alt="세바시 유튜브 총괄" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">사례 보기 →</span></span>
+        <span class="case-body"><span class="case-cat">Content</span>
+          <span class="case-title">세바시 강연회 & 유튜브 총괄</span>
+          <span class="case-sub">구독자 65만 → 130만, 담당 기간 롱폼 누적 1억 뷰+</span></span>
+      </a></article>
+      <article class="fx-card"><a href="https://www.pertential100.com/works/lantern-camping" target="_blank" rel="noopener">
+        <span class="fx-frame"><img src="../img/work-lantern-800.webp" alt="랜턴캠핑" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">사례 보기 →</span></span>
+        <span class="case-body"><span class="case-cat">Community</span>
+          <span class="case-title">랜턴캠핑 & 프립 오리지널</span>
+          <span class="case-sub">비대면 토크 콘서트 단일 회차 최다 1,250명 신청</span></span>
+      </a></article>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="container">
+    <p class="section-label">News</p>
+    <h2 class="section-title">소식과 기록</h2>
+    <ul class="news reveal">
+      <li><a href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <span class="date">2025.08</span><span class="tit">『작은 브랜드 전성시대가 온다』 — 세 번째 책 집필</span><span class="arrow">→</span></a></li>
+      <li><a href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <span class="date">2024.11</span><span class="tit">jtbc 차이나는 클라스 · 파이낸셜뉴스 인터뷰</span><span class="arrow">→</span></a></li>
+      <li><a href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <span class="date">2024.06</span><span class="tit">크몽 이직 포트폴리오 카테고리 유일 PRIME 등급 획득</span><span class="arrow">→</span></a></li>
+      <li><a href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <span class="date">2023.03</span><span class="tit">『딴짓의 힘』 출간 — 교보문고 트렌드 도서</span><span class="arrow">→</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="reprise reveal" id="contact" style="padding:110px 0">
+  <div class="container">
+    <p class="en">Expanding Experience, Empowering Career</p>
+    <h2>당신이 믿어온 경험 위에,<br>새로운 전략으로 커리어의 다음을 만듭니다</h2>
+    <a class="pill-cta" href="mailto:yourpotential0100@gmail.com">협업 문의하기</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">유형 4 · 헤리티지 내러티브형 (ref. 신도리코 / 네이버 / 카카오 / 우아한형제들 / Lush) — <a href="../index.html">쇼케이스 허브로</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+</body>
+</html>

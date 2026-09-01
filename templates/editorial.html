@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유형 5 · 콰이어트 에디토리얼형 — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="Aesop·무인양품·Anthropic 계열 — 타이포와 여백으로 신뢰를 만드는 콰이어트 에디토리얼형 랜딩 샘플">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 콰이어트 에디토리얼형 테마 (ref: Aesop / 무인양품 / Anthropic / Patagonia / Freitag) ----------
+   공식: 아이보리 그라운드 + 테라코타 한 색, 세리프 디스플레이 + 산세리프 본문,
+   카피가 이미지보다 먼저다. 모션은 느린 페이드뿐 — 여백이 신뢰를 만든다. */
+:root{
+  --bg:#F0EEE6;
+  --surface:#E7E4D8;
+  --card-bg:#F7F5EE;
+  --text-primary:#1F1D1A;
+  --text-secondary:rgba(31,29,26,0.75);
+  --text-muted:rgba(31,29,26,0.5);
+  --accent:#1F1D1A;
+  --accent-contrast:#F0EEE6;
+  --accent-light:rgba(31,29,26,0.06);
+  --border:rgba(31,29,26,0.15);
+  --fx-accent:#B0552F;          /* 테라코타 */
+  --fx-accent-ink:#F0EEE6;
+  --nav-bg:rgba(240,238,230,0.9);
+  --radius:2px;
+  --font-display:'Noto Serif KR',serif;
+}
+.nav-links a{color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text-primary)}
+.reveal{transition-duration:1.2s}   /* 이 유형만 더 느리게 */
+
+/* 히어로 — 카피가 전부인 에세이 오프닝 */
+.hero{padding:190px 0 110px}
+.hero .over{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--fx-accent);margin-bottom:26px}
+.hero h1{font-family:var(--font-display);font-size:clamp(30px,4.8vw,54px);font-weight:600;
+  letter-spacing:-0.01em;line-height:1.55;max-width:780px}
+.hero h1 em{font-style:italic;color:var(--fx-accent)}
+.hero .foot{margin-top:36px;font-size:14px;color:var(--text-muted);display:flex;gap:14px;align-items:center}
+.hero .foot::before{content:"";width:44px;height:1px;background:var(--text-muted)}
+
+/* 에세이 단락 — 좁은 measure, 세리프 리드 */
+.essay{max-width:640px;margin:0 auto}
+.essay .lead{font-family:var(--font-display);font-size:clamp(19px,2.4vw,24px);font-weight:600;line-height:1.85;margin-bottom:22px}
+.essay p+p{margin-top:18px}
+.essay p{color:var(--text-secondary);line-height:2;font-size:15.5px}
+.essay .sig{margin-top:34px;font-family:var(--font-display);font-style:italic;color:var(--text-muted)}
+
+/* 오브제 진열 — 한 줄에 하나씩, 캡션과 함께 */
+.object{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:84px 0;border-top:1px solid var(--border)}
+.object:nth-child(even){direction:rtl}
+.object>*{direction:ltr}
+.object img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:var(--cover-pos,center);
+  filter:sepia(.08) saturate(.92)}
+.object .no{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--fx-accent);margin-bottom:14px}
+.object h3{font-family:var(--font-display);font-size:clamp(21px,2.8vw,28px);font-weight:600;line-height:1.5;margin-bottom:14px}
+.object p{color:var(--text-secondary);line-height:1.95;font-size:14.5px;max-width:400px}
+.object a{display:inline-block;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--text-primary);
+  border-bottom:1px solid var(--fx-accent);padding-bottom:3px;transition:color .3s}
+.object a:hover{color:var(--fx-accent)}
+
+/* 수치 — 소리 지르지 않는 숫자 */
+.quiet-num{display:flex;gap:64px;flex-wrap:wrap;padding:72px 0;border-top:1px solid var(--border)}
+.quiet-num b{display:block;font-family:var(--font-display);font-size:30px;font-weight:600}
+.quiet-num span{font-size:13px;color:var(--text-muted)}
+
+/* 서가 — 책 3권 */
+.shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.shelf .vol img{aspect-ratio:3/4;object-fit:cover;width:100%;filter:sepia(.08) saturate(.92);
+  transition:transform .6s ease}
+.shelf .vol:hover img{transform:translateY(-6px)}
+.shelf .vol b{display:block;font-family:var(--font-display);font-size:15.5px;font-weight:600;margin-top:14px}
+.shelf .vol span{font-size:12.5px;color:var(--text-muted)}
+
+.contact-sec{text-align:center;border-top:1px solid var(--border);padding:110px 0}
+.contact-sec h2{font-family:var(--font-display);font-size:clamp(22px,3.4vw,32px);font-weight:600;line-height:1.6;margin-bottom:30px}
+.contact-sec h2 em{font-style:italic;color:var(--fx-accent)}
+.contact-sec a.write{font-size:14px;font-weight:600;letter-spacing:.08em;color:var(--text-primary);
+  border:1px solid var(--text-primary);padding:14px 34px;border-radius:0;transition:all .3s}
+.contact-sec a.write:hover{background:var(--text-primary);color:var(--bg)}
+
+footer{border-top:1px solid var(--border)}
+
+@media (max-width:768px){
+  .hero{padding:140px 0 80px}
+  .object{grid-template-columns:1fr;gap:24px;padding:56px 0}
+  .quiet-num{gap:36px;padding:52px 0}
+  .shelf{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 유형 <span>5</span> · 콰이어트 에디토리얼형</a>
+    <div class="nav-links">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#works">Works</a>
+      <a href="#books">Books</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <p class="over">Creator IP Builder — 조재형</p>
+    <h1>경험은 나열될 때 흩어지고,<br><em>편집될 때</em> 비로소 이야기가 됩니다.</h1>
+    <p class="foot">포트폴리오를 쓰는 일에 대하여</p>
+  </div>
+</section>
+
+<section id="philosophy" style="padding-top:0">
+  <div class="container">
+    <div class="essay reveal">
+      <p class="lead">구직자의 진짜 페인 포인트는 디자인이 아니라, 자기 자신을 설명하는 일입니다.</p>
+      <p>15년 동안 무대 뒤에서 콘텐츠를 기획하며 배운 것이 하나 있습니다.
+        좋은 이야기는 화려한 장면이 아니라 정확한 편집에서 나온다는 것.
+        누군가의 경험을 마주할 때도 같은 원칙으로 일합니다.</p>
+      <p>인터뷰로 경험의 맥락을 구성하고, 직무가 요구하는 성장의 본질에 맞춰 다시 배열합니다.
+        그렇게 완성된 포트폴리오는 PPT가 아니라 커리어의 방향성을 함축하는 한 편의 전략 문서가 됩니다.</p>
+      <p class="sig">— 조재형, 커리어 디벨로퍼J</p>
+    </div>
+  </div>
+</section>
+
+<section id="works" style="padding-top:0;padding-bottom:0">
+  <div class="container">
+
+    <article class="object reveal">
+      <img src="../img/work-sebasi-800.webp" alt="세바시 강연회와 유튜브" loading="lazy">
+      <div>
+        <p class="no">RECORD — 01</p>
+        <h3>무대 위 15분이 인생을 바꾸는 것을 목격한 시간</h3>
+        <p>세바시 강연회와 유튜브 채널을 총괄하며 구독자 65만이 130만이 되는 과정을 지켰습니다.
+          숫자보다 오래 남은 것은, 잘 편집된 이야기의 힘에 대한 확신이었습니다.</p>
+        <a href="https://www.pertential100.com/works/sebasi" target="_blank" rel="noopener">기록 읽기</a>
+      </div>
+    </article>
+
+    <article class="object reveal">
+      <img src="../img/work-lantern-800.webp" alt="랜턴캠핑" loading="lazy">
+      <div>
+        <p class="no">RECORD — 02</p>
+        <h3>랜턴 하나로 천 명이 모이는 밤</h3>
+        <p>프립 오리지널과 랜턴캠핑 — 비대면 토크 콘서트에 단일 회차 1,250명이 모였습니다.
+          모임의 밀도는 규모가 아니라 같은 방향을 보는 마음에서 나옵니다.</p>
+        <a href="https://www.pertential100.com/works/lantern-camping" target="_blank" rel="noopener">기록 읽기</a>
+      </div>
+    </article>
+
+    <article class="object reveal">
+      <img src="../img/work-ddanjit-ws-800.webp" alt="딴짓워크샵" loading="lazy">
+      <div>
+        <p class="no">RECORD — 03</p>
+        <h3>곁길이 본길이 되는 순간</h3>
+        <p>딴짓워크샵에서는 경험의 총합에서 시작점을 찾습니다.
+          딴짓이라는 말 속의 애정 — 그것이 커리어의 다음 문장이 되는 것을 여러 번 보았습니다.</p>
+        <a href="https://www.pertential100.com/works/ddanjit-workshop" target="_blank" rel="noopener">기록 읽기</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:0">
+  <div class="container">
+    <div class="quiet-num reveal">
+      <div><b><span class="gr-ticker" data-value="700" data-suffix="편">700편</span></b><span>함께 쓴 전략 문서</span></div>
+      <div><b><span class="gr-ticker" data-value="4.9" data-decimals="1">4.9</span></b><span>남겨진 평점 (5.0)</span></div>
+      <div><b><span class="gr-ticker" data-value="200" data-suffix="회">200회</span></b><span>강의와 워크숍</span></div>
+      <div><b><span class="gr-ticker" data-value="15" data-suffix="년">15년</span></b><span>기획의 시간</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="books" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <p class="section-label" style="letter-spacing:.2em">Library</p>
+    <h2 class="section-title" style="font-family:var(--font-display);font-weight:600">세 권의 책</h2>
+    <div class="shelf reveal">
+      <a class="vol" href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <img src="../img/book-smallbrand-800.webp" alt="작은 브랜드 전성시대가 온다" loading="lazy">
+        <b>작은 브랜드 전성시대가 온다</b><span>개인이 브랜드가 되는 시대의 기록</span></a>
+      <a class="vol" href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <img src="../img/book-ddanjit-800.webp" alt="딴짓의 힘" loading="lazy">
+        <b>딴짓의 힘</b><span>곁길이 본길이 되는 순간들</span></a>
+      <a class="vol" href="https://www.pertential100.com/" target="_blank" rel="noopener">
+        <img src="../img/book-hwd-800.webp" alt="하고 싶은 대로 살아도 괜찮아" loading="lazy">
+        <b>하고 싶은 대로 살아도 괜찮아</b><span>방향을 잃은 이들에게 보내는 편지</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-sec reveal" id="contact">
+  <div class="container">
+    <h2>당신의 경험에도<br>아직 편집되지 않은 <em>이야기</em>가 있습니다.</h2>
+    <a class="write" href="mailto:yourpotential0100@gmail.com">편지 쓰기</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">유형 5 · 콰이어트 에디토리얼형 (ref. Aesop / 무인양품 / Anthropic / Patagonia / Freitag) — <a href="../index.html">쇼케이스 허브로</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+</body>
+</html>

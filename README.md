@@ -1,39 +1,41 @@
-# 브랜딩 홈페이지 템플릿 쇼케이스
+# 브랜딩 랜딩페이지 유형 쇼케이스
 
-「작은 브랜드 전성시대가 온다」(가제) 원고 193p 속 브랜드 사례를 분석해 도출한
-**브랜딩 홈페이지 템플릿 5유형**과, 유형별 샘플 홈페이지 모음입니다.
+유명 브랜드 랜딩페이지 **30개**(글로벌 테크 10 · 한국 브랜드 10 · 라이프스타일 10)를 분석해 도출한
+**6가지 랜딩 유형**과, 유형별 샘플 페이지 모음입니다.
 
-- 디자인 토큰: [pertential100.com](https://www.pertential100.com/) (다크 그린 `#1B4332` + 베이지 `#E8D9BE`, pill 형태 언어)
-- 인터랙션: [goldenrecords.kr](https://goldenrecords.kr/) 분석 결과의 바닐라 JS 이식
-  (스프링 숫자 티커 · 스크롤 리빌 · 무한 마퀴 · 카드 호버 5중주 · 스크롤 스파이 · 필터 스태거 등장 · 스파크 필드)
+여섯 샘플은 전부 **같은 콘텐츠**(조재형 · Creator IP Builder, pertential100.com의 실제 데이터와 이미지 13장)를 쓰고,
+팔레트·타이포·레이아웃 골격·모션만 유형별 문법으로 바꿔 — 유형이 인상을 얼마나 바꾸는지 통제 변인으로 비교합니다.
 
 ## 구성
 
-| 페이지 | 유형 | 책 속 근거 |
+| 페이지 | 유형 | 참고 브랜드 |
 |---|---|---|
-| `index.html` | 쇼케이스 허브 | — |
-| `templates/performance.html` | A · 성과·전문성 강조형 | 5장 (쏘피 · 성지연 · 커리어디벨로퍼J) |
-| `templates/visual.html` | B · 비주얼·경험 몰입형 | 1장 · 8장 (한아조 · 밑미 · 마이시크릿덴 · 무릉) |
-| `templates/story.html` | C · 스토리텔링·세계관 강조형 | 3장 · 10장 (글로니 · 뚜누 · 왁타버스) |
-| `templates/community.html` | D · 커뮤니티·컬처형 | 7장 (밑미 · 플라잉웨일 록담 · 크리스천데이트) |
-| `templates/curation.html` | E · 취향 큐레이션형 | 2장 · 9장 (흑심 · 시시호시 · 퍼멘티드 고스트) |
-| `assets/shared.css` | 공용 디자인 토큰 + 인터랙션 스타일 | |
-| `assets/fx.js` | 공용 인터랙션 (goldenrecords 원본 파라미터 유지) | |
+| `index.html` | 쇼케이스 허브 (+ 30개 브랜드 유형 매트릭스) | — |
+| `templates/impact.html` | 1 · 임팩트 캠페인형 | Nike · Gentle Monster · Red Bull · 무신사 · Spotify |
+| `templates/immersive.html` | 2 · 프로덕트 몰입형 | Apple · Tesla · 현대카드 · LG전자 · 유니클로 |
+| `templates/saas.html` | 3 · 전환형 SaaS | Stripe · 토스 · Notion · Figma · Linear · Vercel |
+| `templates/narrative.html` | 4 · 헤리티지 내러티브형 | 신도리코 · 네이버 · 카카오 · 우아한형제들 · Lush |
+| `templates/editorial.html` | 5 · 콰이어트 에디토리얼형 | Aesop · 무인양품 · Anthropic · Patagonia · Freitag |
+| `templates/curation.html` | 6 · 커머스 큐레이션형 | Airbnb · IKEA · 29CM · 이니스프리 |
+| `assets/shared.css` | 공용 구조 + 테마 토큰 계약 | |
+| `assets/fx.js` | 공용 인터랙션 (goldenrecords.kr 실측 파라미터) | |
 | `img/` | pertential100.com 이미지 로컬 사본 (핫링크 차단 대응) | |
 
-샘플 콘텐츠는 pertential100.com(조재형 · Creator IP Builder)의 실제 데이터를 사용해,
-같은 브랜드·같은 토큰이라도 **무엇을 앞세우느냐에 따라 전혀 다른 홈페이지가 되는 것**을 보여줍니다.
+## 테마 시스템
+
+`assets/shared.css`는 구조(네비·마퀴·티커·카드·필터)만 갖고, 각 템플릿이 `:root` 토큰을 재정의합니다:
+
+- `--bg / --surface / --card-bg / --text-*` — 그라운드와 텍스트 스케일
+- `--fx-accent / --fx-accent-ink` — 인터랙션 액센트(글로우·링·CTA·스파크·스크롤스파이). `fx.js`가 런타임에 읽음
+- `--nav-bg / --radius / --font-body / --font-display` — 크롬, 라운딩, 서체
 
 ## 보는 방법
 
 ```bash
-# 로컬
-python3 -m http.server 8000
-# → http://localhost:8000
+python3 -m http.server 8000   # → http://localhost:8000
 ```
 
-GitHub Pages로 보려면: 저장소 Settings → Pages → 배포 브랜치를 선택하면
-`index.html`이 그대로 서빙됩니다 (빌드 과정 없음, 정적 파일만 사용).
+GitHub Pages: Settings → Pages → 배포 브랜치 선택 (빌드 과정 없음, 정적 파일만 사용).
 
 ## 인터랙션 파라미터 출처 (goldenrecords.kr 실측)
 
@@ -42,5 +44,5 @@ GitHub Pages로 보려면: 저장소 Settings → Pages → 배포 브랜치를 
 - 마퀴: 목록 2벌 복제 + `translateX(-50%)` 루프, 호버 시 일시정지
 - 카드 호버: lift −4px + 1px 링 + 글로우 + 이미지 `scale(1.09)` + CTA 배지 등장
 - 스크롤 스파이: IO `rootMargin -45% 0 -50%` (뷰포트 중앙 밴드)
-- 별하늘(스파크 필드): 시드 랜덤 `Math.sin(i·127.1+311.7)·43758.5453`, twinkle 2.5~6.5s
+- 스파크 필드: 시드 랜덤 `Math.sin(i·127.1+311.7)·43758.5453`, twinkle 2.5~6.5s
 - `prefers-reduced-motion: reduce` 시 전체 무효화

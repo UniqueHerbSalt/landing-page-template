@@ -5,16 +5,23 @@
 (function(){
   'use strict';
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* 페이지 테마의 액센트를 읽는다 — 템플릿마다 :root의 --fx-accent가 다르다 */
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--fx-accent').trim()
+         || getComputedStyle(document.documentElement).getPropertyValue('--beige').trim();
+    return v || '#E8D9BE';
+  }
 
   /* ---------- 1. 스파크 필드: 시드 랜덤 별 + 유성 ---------- */
   function initSparkField(){
     var field = document.getElementById('spark-field');
     if (!field || reduced) return;
+    var A = accent();
     function rnd(i){ var x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
     var frag = document.createDocumentFragment();
     for (var i = 0; i < 90; i++){
       var s = document.createElement('div');
-      s.style.cssText = 'position:absolute;border-radius:50%;background:#E8D9BE;'
+      s.style.cssText = 'position:absolute;border-radius:50%;background:' + A + ';'
         + 'top:' + (rnd(i) * 100).toFixed(1) + '%;left:' + (rnd(i + 200) * 100).toFixed(1) + '%;'
         + 'width:' + (1 + rnd(i + 400) * 1.6).toFixed(1) + 'px;height:' + (1 + rnd(i + 400) * 1.6).toFixed(1) + 'px;'
         + 'animation:fx-twinkle ' + (2.5 + rnd(i + 600) * 4).toFixed(1) + 's ease-in-out -' + (rnd(i + 800) * 6).toFixed(1) + 's infinite';
@@ -23,8 +30,8 @@
     [['12%','78%','7s','0s'],['34%','40%','9s','3.2s'],['8%','55%','11s','6.5s']].forEach(function(ss){
       var d = document.createElement('div');
       d.style.cssText = 'position:absolute;width:160px;height:2px;opacity:0;'
-        + 'background:linear-gradient(90deg,rgba(232,217,190,0),rgba(232,217,190,.5) 70%,#E8D9BE);'
-        + 'box-shadow:0 0 6px rgba(232,217,190,.35);'
+        + 'background:linear-gradient(90deg,transparent,color-mix(in srgb,' + A + ' 50%,transparent) 70%,' + A + ');'
+        + 'box-shadow:0 0 6px color-mix(in srgb,' + A + ' 35%,transparent);'
         + 'top:' + ss[0] + ';left:' + ss[1] + ';animation:fx-shoot ' + ss[2] + ' linear ' + ss[3] + ' infinite';
       frag.appendChild(d);
     });
@@ -157,7 +164,7 @@
 
   /* ---------- 5. 네비 스크롤 스파이 ---------- */
   function initScrollSpy(){
-    var BEIGE = (getComputedStyle(document.documentElement).getPropertyValue('--beige') || '#E8D9BE').trim();
+    var BEIGE = accent();
     var items = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
     if (!items.length) return;
     var map = {};

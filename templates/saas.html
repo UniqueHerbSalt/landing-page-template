@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유형 3 · 전환형 SaaS — 브랜딩 홈페이지 샘플</title>
+<meta name="description" content="Stripe·토스·Notion 계열 — 듀얼 CTA와 벤토 그리드로 전환을 설계하는 SaaS형 랜딩 샘플">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---------- 전환형 SaaS 테마 (ref: Stripe / 토스 / Notion / Figma / Linear / Vercel) ----------
+   공식: 흰 그라운드 + 시그니처 블러플 그라디언트, 헤드라인+듀얼 CTA 히어로,
+   신뢰 로고 스트립 → 벤토 피처 그리드 → 수치 → 후기 → 마감 CTA의 전환 퍼널 골격. */
+:root{
+  --bg:#FFFFFF;
+  --surface:#F6F8FB;
+  --card-bg:#FFFFFF;
+  --text-primary:#0A2540;
+  --text-secondary:rgba(10,37,64,0.72);
+  --text-muted:rgba(10,37,64,0.5);
+  --accent:#635BFF;
+  --accent-contrast:#FFFFFF;
+  --accent-light:rgba(99,91,255,0.08);
+  --border:rgba(10,37,64,0.1);
+  --fx-accent:#635BFF;          /* blurple */
+  --fx-accent-ink:#FFFFFF;
+  --nav-bg:rgba(255,255,255,0.85);
+  --radius:14px;
+}
+.nav-links a{color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-cta{background:var(--accent);color:#fff}
+
+/* 히어로 — 스트라이프식 사선 그라디언트 캔버스 */
+.hero{position:relative;padding:170px 0 96px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -10% 34% -10%;transform:skewY(-7deg);
+  background:linear-gradient(100deg,#635BFF 8%,#8F6AFF 34%,#3182F6 62%,#00D4FF 96%);
+  background-size:220% 220%;animation:aurora 14s ease-in-out infinite;opacity:.14}
+@keyframes aurora{0%,100%{background-position:0% 40%}50%{background-position:100% 60%}}
+.hero .container{position:relative}
+.hero-badge{display:inline-block;font-size:12.5px;font-weight:700;color:var(--accent);
+  background:var(--accent-light);border:1px solid rgba(99,91,255,.25);border-radius:999px;padding:6px 14px;margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,62px);font-weight:800;letter-spacing:-0.028em;line-height:1.18;max-width:760px}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,#635BFF,#3182F6);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(15px,1.9vw,18px);color:var(--text-secondary);margin-top:18px;max-width:560px;line-height:1.75}
+.hero .ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.cta-main{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
+  font-size:15px;font-weight:700;padding:13px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.cta-main:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(99,91,255,.55)}
+.cta-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--text-primary);
+  font-size:15px;font-weight:700;padding:13px 26px;border-radius:999px;border:1.5px solid var(--border);transition:border-color .2s}
+.cta-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* 신뢰 로고 스트립 */
+.logos{padding:26px 0 8px}
+.logos p{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+
+/* 벤토 그리드 */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bento .cell{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.bento .cell:hover{transform:translateY(-4px);border-color:rgba(99,91,255,.45);
+  box-shadow:0 18px 44px -18px rgba(99,91,255,.35)}
+.bento .cell.wide{grid-column:span 2}
+.bento .ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:17px;background:var(--accent-light);margin-bottom:16px}
+.bento h3{font-size:16.5px;font-weight:700;margin-bottom:7px}
+.bento p{font-size:13.5px;color:var(--text-secondary);line-height:1.7}
+.bento .cell img{border-radius:10px;margin-top:18px;aspect-ratio:16/7;object-fit:cover}
+
+/* 수치 밴드 — 그라디언트 배경 */
+.metrics{background:linear-gradient(120deg,#0A2540,#1A1F71 55%,#3B2E8C);color:#fff;border-radius:22px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:52px 46px}
+.metrics b{display:block;font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-0.01em;
+  background:linear-gradient(92deg,#A5B4FF,#67E8F9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.metrics b .gr-ticker{color:inherit}
+.metrics span{font-size:13px;color:rgba(255,255,255,.6)}
+
+/* 후기 카드 */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.q{background:var(--surface);border-radius:var(--radius);padding:24px}
+.q p{font-size:14px;line-height:1.8;color:var(--text-secondary)}
+.q .who{margin-top:16px;font-size:12.5px;font-weight:700;color:var(--text-muted)}
+.q .who b{color:var(--accent);display:block;font-size:13px}
+
+.close-cta{text-align:center;padding:100px 0}
+.close-cta h2{font-size:clamp(26px,4.2vw,42px);font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+.close-cta p{color:var(--text-secondary);margin-bottom:30px}
+
+.marquee{border-color:transparent}
+.marquee-item{font-weight:800;font-size:16px;color:rgba(10,37,64,.35)}
+.marquee-item em{color:var(--accent)}
+
+@media (max-width:960px){
+  .bento{grid-template-columns:1fr 1fr}
+  .bento .cell.wide{grid-column:span 2}
+  .metrics{grid-template-columns:1fr 1fr;padding:38px 30px}
+  .quotes{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  .hero{padding:130px 0 66px}
+  .bento{grid-template-columns:1fr}
+  .bento .cell.wide{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="../index.html">← 유형 <span>3</span> · 전환형 SaaS</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#metrics">Numbers</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <a class="nav-cta" href="#contact">시작하기</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <p class="hero-badge">🎉 크몽 이직 포트폴리오 카테고리 1위</p>
+    <h1>커리어의 다음을 만드는<br><em>포트폴리오 인프라</em></h1>
+    <p class="sub">경험 인터뷰부터 전략 문서까지, 이직의 모든 것.
+      2년간 700명이 커리어 디벨로퍼J와 함께 다음 커리어로 이동했습니다.</p>
+    <div class="ctas">
+      <a class="cta-main" href="mailto:yourpotential0100@gmail.com">무료 상담 시작 →</a>
+      <a class="cta-ghost" href="#features">서비스 살펴보기</a>
+    </div>
+  </div>
+</section>
+
+<div class="logos reveal">
+  <div class="container"><p>함께한 곳들</p></div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" style="--mq-dur:40s">
+      <span class="marquee-item">크몽 <em>PRIME</em></span>
+      <span class="marquee-item">세바시</span>
+      <span class="marquee-item">KT</span>
+      <span class="marquee-item">교보문고</span>
+      <span class="marquee-item">한성대학교</span>
+      <span class="marquee-item">프립</span>
+      <span class="marquee-item">HFK</span>
+      <span class="marquee-item">jtbc</span>
+      <span class="marquee-item">GAMDO</span>
+    </div>
+  </div>
+</div>
+
+<section id="features" style="padding-top:72px">
+  <div class="container">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">전환을 설계하는 3단계 + 증명</h2>
+    <div class="bento reveal">
+      <div class="cell wide">
+        <div class="ic">🔍</div>
+        <h3>STEP 1 — 경험 인터뷰</h3>
+        <p>"왜 이 경험이 중요했나요?" 반복되는 질문으로 '별거 아닌 경험' 속 핵심을 찾아냅니다.
+          맥락 없는 나열이 아니라, 직무가 요구하는 성장 서사로 재배열합니다.</p>
+        <img src="../img/work-kmong-800.webp" alt="경험 인터뷰" loading="lazy">
+      </div>
+      <div class="cell">
+        <div class="ic">🧭</div>
+        <h3>STEP 2 — 전략 번역</h3>
+        <p>포트폴리오는 PPT가 아니라 커리어 방향성을 함축하는 전략 문서입니다.</p>
+      </div>
+      <div class="cell">
+        <div class="ic">🚀</div>
+        <h3>STEP 3 — 이직 실행</h3>
+        <p>서류 통과율이 달라지는 순간, 면접의 대화 주제가 달라집니다.</p>
+      </div>
+      <div class="cell wide">
+        <div class="ic">📚</div>
+        <h3>강의 & 워크숍으로 확장</h3>
+        <p>대학·기업·커뮤니티 200회+ — 딴짓워크샵부터 HFK 커리어플랜까지,
+          한 사람의 전략을 모두의 방법론으로 확장합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metrics" style="padding-top:0">
+  <div class="container">
+    <div class="metrics reveal">
+      <div><b><span class="gr-ticker" data-value="700" data-suffix="+">700+</span></b><span>누적 포트폴리오 컨설팅</span></div>
+      <div><b><span class="gr-ticker" data-value="4.9" data-decimals="1">4.9</span></b><span>크몽 후기 평점 / 5.0</span></div>
+      <div><b><span class="gr-ticker" data-value="2" data-prefix="상위 " data-suffix="%">상위 2%</span></b><span>크몽 전문가 등급</span></div>
+      <div><b><span class="gr-ticker" data-value="22" data-suffix="개월">22개월</span></b><span>PRIME 등급까지 걸린 시간</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="container">
+    <p class="section-label">Reviews</p>
+    <h2 class="section-title">700개의 후기가 말합니다</h2>
+    <div class="quotes reveal">
+      <div class="q"><p>"제 경험이 이렇게 정리될 수 있다는 걸 처음 알았어요. 면접에서 받은 질문이 달라졌습니다."</p>
+        <p class="who"><b>이직 성공 — IT 기획자</b>크몽 후기</p></div>
+      <div class="q"><p>"포트폴리오가 아니라 커리어 방향을 같이 잡아주셨어요. 전략 문서라는 말이 과장이 아니었습니다."</p>
+        <p class="who"><b>이직 성공 — 콘텐츠 마케터</b>크몽 후기</p></div>
+      <div class="q"><p>"인터뷰 두 시간이 제일 값졌습니다. 별거 아니라고 생각한 경험이 핵심 무기가 됐어요."</p>
+        <p class="who"><b>이직 성공 — 서비스 기획자</b>크몽 후기</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="close-cta reveal" id="contact" style="background:var(--surface)">
+  <div class="container">
+    <h2>지금, 다음 커리어를 시작하세요</h2>
+    <p>첫 상담은 무료입니다. 준비물은 지금까지의 경험뿐.</p>
+    <a class="cta-main" href="mailto:yourpotential0100@gmail.com">무료 상담 신청 →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">유형 3 · 전환형 SaaS (ref. Stripe / 토스 / Notion / Figma / Linear / Vercel) — <a href="../index.html">쇼케이스 허브로</a></div>
+</footer>
+
+<script src="../assets/fx.js"></script>
+</body>
+</html>

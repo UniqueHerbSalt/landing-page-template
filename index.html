@@ -3,40 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>브랜딩 홈페이지 템플릿 쇼케이스</title>
-<meta name="description" content="「작은 브랜드 전성시대가 온다」 분석 기반 브랜딩 홈페이지 템플릿 유형 쇼케이스 — 성과·전문성 / 비주얼·경험 몰입 / 스토리텔링·세계관 / 커뮤니티·컬처 / 취향 큐레이션">
+<title>브랜딩 랜딩페이지 유형 쇼케이스</title>
+<meta name="description" content="유명 브랜드 랜딩페이지 30개 분석으로 도출한 6가지 유형 — 같은 콘텐츠를 6가지 디자인 언어로 구현한 쇼케이스">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:ital,wght@0,600;1,600&display=swap">
 <link rel="stylesheet" href="assets/shared.css">
 <style>
+/* 허브 — pertential100 그린 아이덴티티 유지. 6개 템플릿과 구분되는 '표지' 역할 */
 .hub-hero{padding:180px 0 72px;text-align:center}
 .hub-hero .hero-role{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--beige);margin-bottom:16px}
 .hub-hero h1{font-size:clamp(30px,5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.35}
 .hub-hero h1 em{font-style:normal;color:var(--beige)}
-.hub-hero .sub{font-size:clamp(15px,1.8vw,17px);color:var(--text-secondary);margin-top:22px;line-height:1.8;max-width:640px;margin-left:auto;margin-right:auto}
+.hub-hero .sub{font-size:clamp(15px,1.8vw,17px);color:var(--text-secondary);margin-top:22px;line-height:1.8;max-width:660px;margin-left:auto;margin-right:auto}
 
+/* 유형 카드 — 유형별 실제 팔레트 스와치 + 타이포 프리뷰 */
 .tpl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.tpl-card .tpl-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
-.tpl-letter{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--beige);margin-bottom:8px}
-.tpl-title{font-size:clamp(19px,2.4vw,24px);font-weight:800;letter-spacing:-0.01em;margin-bottom:12px}
-.tpl-desc{font-size:14.5px;color:var(--text-secondary);line-height:1.75;margin-bottom:18px}
-.tpl-basis{font-size:12.5px;color:var(--text-muted);line-height:1.7;padding:12px 14px;background:var(--accent-light);border-radius:8px;margin-bottom:18px}
-.tpl-basis em{font-style:normal;color:var(--beige);font-weight:700}
-.tpl-feats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.tpl-feats span{font-size:11.5px;font-weight:700;letter-spacing:.04em;background:var(--accent-light);
-  color:var(--accent);border-radius:999px;padding:5px 12px}
+.tpl-card .prev{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.tpl-card .prev .t{font-size:26px;font-weight:800;letter-spacing:-0.01em}
+.tpl-card .tpl-body{padding:24px 28px 28px;display:flex;flex-direction:column;flex:1}
+.tpl-no{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--beige);margin-bottom:8px}
+.tpl-title{font-size:clamp(19px,2.4vw,23px);font-weight:800;letter-spacing:-0.01em;margin-bottom:10px}
+.tpl-desc{font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:14px}
+.tpl-refs{font-size:12.5px;color:var(--text-muted);line-height:1.7;margin-bottom:16px}
+.tpl-refs em{font-style:normal;color:var(--beige);font-weight:700}
+.swatches{display:flex;gap:6px;margin-bottom:20px}
+.swatches i{width:22px;height:22px;border-radius:6px;border:1px solid rgba(255,255,255,.25)}
 .tpl-open{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;
   background:var(--accent);color:var(--accent-contrast);font-size:14px;font-weight:700;
   padding:12px 26px;border-radius:999px;transition:background .2s}
 .tpl-card:hover .tpl-open{background:var(--beige)}
 
-.quote-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto}
-.bq{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--beige);border-radius:10px;
-  padding:26px 24px;font-size:15.5px;font-weight:600;line-height:1.8;color:var(--text-secondary)}
-.bq em{font-style:normal;color:var(--beige);font-weight:700}
-@media (max-width:860px){.quote-row{grid-template-columns:1fr}}
+/* 30개 브랜드 매트릭스 */
+.matrix-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
+.matrix{width:100%;border-collapse:collapse;min-width:720px;font-size:13.5px}
+.matrix th{background:var(--card-bg);text-align:left;padding:13px 16px;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--beige);border-bottom:1px solid var(--border)}
+.matrix td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-secondary)}
+.matrix tr:last-child td{border-bottom:none}
+.matrix td b{color:var(--text-primary);font-weight:700}
+.matrix .type-chip{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
 
-.method{max-width:720px;margin:0 auto}
+/* 공통 골격 노트 */
+.method{max-width:760px;margin:0 auto}
 .method-step{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--border)}
 .method-step:last-child{border-bottom:none}
 .method-num{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--accent-light);
@@ -55,119 +64,133 @@
 
 <nav>
   <div class="container">
-    <a class="nav-logo" href="index.html">Branding <span>Templates</span></a>
+    <a class="nav-logo" href="index.html">Landing <span>Archetypes</span></a>
     <div class="nav-links">
-      <a href="#templates">Templates</a>
+      <a href="#types">Types</a>
+      <a href="#brands">30 Brands</a>
       <a href="#method">Method</a>
     </div>
-    <a class="nav-cta" href="#templates">샘플 보기</a>
+    <a class="nav-cta" href="#types">둘러보기</a>
   </div>
 </nav>
 
 <main>
 
-<section class="hub-hero" id="home">
+<section class="hub-hero" id="home" style="padding-bottom:56px">
   <div class="container">
-    <p class="hero-role">Branding Homepage Template Showcase</p>
-    <h1>작은 브랜드의 홈페이지,<br><em>다섯 가지 유형</em>으로 정리했습니다</h1>
-    <p class="sub">「작은 브랜드 전성시대가 온다」 원고 193p 속 40여 개 브랜드 사례를 학습해 도출한 템플릿 유형입니다.
-      디자인 토큰은 pertential100.com, 인터랙션은 goldenrecords.kr 분석 결과를 이식했습니다.
-      카드를 눌러 유형별 샘플 홈페이지를 살펴보세요.</p>
+    <p class="hero-role">30 Brands · 6 Archetypes · 1 Content</p>
+    <h1>같은 콘텐츠,<br><em>여섯 가지</em> 디자인 언어</h1>
+    <p class="sub">Nike부터 신도리코까지 유명 브랜드 랜딩페이지 30개를 분석해 6가지 유형으로 정리했습니다.
+      아래 여섯 페이지는 전부 <strong>같은 사람(조재형 · Creator IP Builder)의 같은 콘텐츠</strong>를
+      유형별 문법으로만 다르게 지은 샘플입니다 — 유형이 인상을 얼마나 바꾸는지 비교해보세요.</p>
   </div>
 </section>
 
 <div class="marquee reveal" aria-hidden="true">
-  <div class="marquee-track" style="--mq-dur:55s">
-    <span class="marquee-item">성과·전문성 강조형</span>
-    <span class="marquee-item"><em>비주얼·경험 몰입형</em></span>
-    <span class="marquee-item">스토리텔링·세계관 강조형</span>
-    <span class="marquee-item"><em>커뮤니티·컬처형</em></span>
-    <span class="marquee-item">취향 큐레이션형</span>
+  <div class="marquee-track" style="--mq-dur:60s">
+    <span class="marquee-item">NIKE</span><span class="marquee-item">APPLE</span>
+    <span class="marquee-item">STRIPE</span><span class="marquee-item"><em>신도리코</em></span>
+    <span class="marquee-item">AESOP</span><span class="marquee-item">IKEA</span>
+    <span class="marquee-item">TESLA</span><span class="marquee-item">토스</span>
+    <span class="marquee-item">GENTLE MONSTER</span><span class="marquee-item">무인양품</span>
+    <span class="marquee-item">AIRBNB</span><span class="marquee-item">카카오</span>
+    <span class="marquee-item">NOTION</span><span class="marquee-item">29CM</span>
+    <span class="marquee-item">PATAGONIA</span><span class="marquee-item">네이버</span>
   </div>
 </div>
 
-<section id="templates" class="reveal">
+<section id="types">
   <div class="container">
-    <div class="center"><p class="section-label">Templates</p>
-    <h2 class="section-title">유형별 샘플 홈페이지</h2></div>
+    <div class="center"><p class="section-label">Six Archetypes</p>
+    <h2 class="section-title">유형별 샘플 페이지</h2></div>
     <div class="tpl-grid">
 
-      <article class="fx-card tpl-card">
-        <a href="templates/performance.html" style="display:flex;flex-direction:column;flex:1">
-          <span class="fx-frame"><img src="img/work-kmong-800.webp" alt="성과 강조형 미리보기" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">샘플 열기 →</span></span>
+      <article class="fx-card tpl-card reveal">
+        <a href="templates/impact.html" style="display:flex;flex-direction:column;flex:1">
+          <span class="prev" style="background:#0A0A0A"><span class="t" style="color:#D6FF3F;text-transform:uppercase;font-weight:900">Just Prove It</span></span>
           <span class="tpl-body">
-            <span class="tpl-letter">TEMPLATE A</span>
-            <h3 class="tpl-title">성과·전문성 강조형</h3>
-            <p class="tpl-desc">숫자와 실적이 첫인상을 만듭니다. 랭킹·평점·건수·매출 등 검증 가능한 지표를
-              스프링 티커로 굴리고, 프로젝트마다 대표 성과를 붙여 신뢰를 쌓는 유형.</p>
-            <p class="tpl-basis" data-basis="A">책 속 근거 — <em>5장 ‘전문성을 브랜드로 바꾼 사람들’</em> (쏘피 · 성지연 · 커리어디벨로퍼J).
-              고객이 만족한 ‘결과’들이 쌓여 나를 자연스럽게 브랜딩해준다.</p>
-            <span class="tpl-feats"><span>숫자 티커</span><span>성과 그리드</span><span>신뢰 마퀴</span><span>성과 뱃지 카드</span></span>
-            <span class="tpl-open">샘플 보기 →</span>
+            <span class="tpl-no">TYPE 1</span>
+            <h3 class="tpl-title">임팩트 캠페인형</h3>
+            <p class="tpl-desc">무채색 검정 크롬에 형광 액센트 한 색. 초대형 대문자 타이포와 풀블리드 캠페인 블록이
+              색과 시선을 전부 가져간다. 모션은 크고 빠르게.</p>
+            <p class="tpl-refs">ref. <em>Nike</em> · Gentle Monster · Red Bull · 무신사 · Spotify</p>
+            <span class="swatches"><i style="background:#0A0A0A"></i><i style="background:#D6FF3F"></i><i style="background:#FFFFFF"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
           </span>
         </a>
       </article>
 
-      <article class="fx-card tpl-card">
-        <a href="templates/visual.html" style="display:flex;flex-direction:column;flex:1">
-          <span class="fx-frame"><img src="img/work-sqnc-800.webp" alt="비주얼 강조형 미리보기" loading="lazy" style="--cover-pos:center 30%"><span class="fx-glow"></span><span class="fx-cta">샘플 열기 →</span></span>
+      <article class="fx-card tpl-card reveal">
+        <a href="templates/immersive.html" style="display:flex;flex-direction:column;flex:1">
+          <span class="prev" style="background:#F5F5F7"><span class="t" style="color:#1D1D1F;letter-spacing:-0.03em">경험을, 작품으로.</span></span>
           <span class="tpl-body">
-            <span class="tpl-letter">TEMPLATE B</span>
-            <h3 class="tpl-title">비주얼·경험 몰입형</h3>
-            <p class="tpl-desc">고퀄리티 이미지와 무드가 말하게 합니다. 풀블리드 히어로, 이미지 우선 갤러리,
-              호버 시에만 드러나는 절제된 텍스트 — 페이지 자체가 공간에 들어서는 경험이 되는 유형.</p>
-            <p class="tpl-basis" data-basis="B">책 속 근거 — <em>1장 ‘경험을 파는 브랜드’, 8장 ‘문화를 만드는 사람들’</em>
-              (한아조 · 밑미 · 마이시크릿덴 · 무릉). 세심하게 설계된 경험은 광고 없이도 줄을 세운다.</p>
-            <span class="tpl-feats"><span>풀블리드 히어로</span><span>이미지 갤러리</span><span>호버 줌</span><span>역방향 마퀴</span></span>
-            <span class="tpl-open">샘플 보기 →</span>
+            <span class="tpl-no">TYPE 2</span>
+            <h3 class="tpl-title">프로덕트 몰입형</h3>
+            <p class="tpl-desc">흰 배경과 교차 슬라이드, 중앙 정렬 대형 헤드라인, 최소한의 카피.
+              제품 사진이 곧 레이아웃이고, 링크에만 시그니처 블루를 쓴다.</p>
+            <p class="tpl-refs">ref. <em>Apple</em> · Tesla · 현대카드 · LG전자 · 유니클로</p>
+            <span class="swatches"><i style="background:#FFFFFF"></i><i style="background:#F5F5F7"></i><i style="background:#0071E3"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
           </span>
         </a>
       </article>
 
-      <article class="fx-card tpl-card">
-        <a href="templates/story.html" style="display:flex;flex-direction:column;flex:1">
-          <span class="fx-frame"><img src="img/profile.webp" alt="스토리텔링 강조형 미리보기" loading="lazy" style="--cover-pos:center 20%"><span class="fx-glow"></span><span class="fx-cta">샘플 열기 →</span></span>
+      <article class="fx-card tpl-card reveal">
+        <a href="templates/saas.html" style="display:flex;flex-direction:column;flex:1">
+          <span class="prev" style="background:linear-gradient(100deg,#635BFF22,#3182F622),#fff"><span class="t" style="background:linear-gradient(92deg,#635BFF,#3182F6);-webkit-background-clip:text;background-clip:text;color:transparent">전환을 설계하다</span></span>
           <span class="tpl-body">
-            <span class="tpl-letter">TEMPLATE C</span>
-            <h3 class="tpl-title">스토리텔링·세계관 강조형</h3>
-            <p class="tpl-desc">브랜드의 철학과 여정이 주인공입니다. 인용구 히어로, 한 문장씩 리빌되는 신조,
-              세로 타임라인 — 창업자 페르소나와 세계관으로 공감을 만드는 유형.</p>
-            <p class="tpl-basis" data-basis="C">책 속 근거 — <em>3장 ‘창업자의 페르소나가 브랜드가 될 때’, 10장 ‘세계관이 브랜드가 되는 순간’</em>
-              (글로니 · 뚜누 · 왁타버스). 사람들은 물건이 아니라 만든 사람의 시선과 태도를 산다.</p>
-            <span class="tpl-feats"><span>스파크 필드</span><span>인용구 히어로</span><span>문장 리빌</span><span>여정 타임라인</span></span>
-            <span class="tpl-open">샘플 보기 →</span>
+            <span class="tpl-no">TYPE 3</span>
+            <h3 class="tpl-title">전환형 SaaS</h3>
+            <p class="tpl-desc">헤드라인 + 듀얼 CTA 히어로, 신뢰 로고 스트립, 벤토 피처 그리드, 수치와 후기 —
+              스크롤 전체가 하나의 전환 퍼널로 설계된다.</p>
+            <p class="tpl-refs">ref. <em>Stripe</em> · 토스 · Notion · Figma · Linear · Vercel</p>
+            <span class="swatches"><i style="background:#FFFFFF"></i><i style="background:#635BFF"></i><i style="background:#0A2540"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
           </span>
         </a>
       </article>
 
-      <article class="fx-card tpl-card">
-        <a href="templates/community.html" style="display:flex;flex-direction:column;flex:1">
-          <span class="fx-frame"><img src="img/work-lantern-800.webp" alt="커뮤니티·컬처형 미리보기" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">샘플 열기 →</span></span>
+      <article class="fx-card tpl-card reveal">
+        <a href="templates/narrative.html" style="display:flex;flex-direction:column;flex:1">
+          <span class="prev" style="background:#FFFFFF"><span class="t" style="color:#17191D;font-weight:700;font-size:19px">신뢰 위에, 다음을 만듭니다</span></span>
           <span class="tpl-body">
-            <span class="tpl-letter">TEMPLATE D</span>
-            <h3 class="tpl-title">커뮤니티·컬처형</h3>
-            <p class="tpl-desc">함께하는 사람들이 곧 증거입니다. 참여 지표, 흘러가는 후기 마퀴,
-              모임 프로그램 카드, 지켜가는 문화 선언 — 커뮤니티가 브랜드가 되는 유형.</p>
-            <p class="tpl-basis" data-basis="D">책 속 근거 — <em>7장 ‘커뮤니티를 짓는 빌더들’</em> (밑미 · 플라잉웨일 록담 · 크리스천데이트).
-              좋은 연결은 조건이 아니라 ‘같은 방향을 보는 마음’에서 온다.</p>
-            <span class="tpl-feats"><span>참여 지표 티커</span><span>후기 카드 마퀴</span><span>프로그램 카드</span><span>문화 선언</span></span>
-            <span class="tpl-open">샘플 보기 →</span>
+            <span class="tpl-no">TYPE 4</span>
+            <h3 class="tpl-title">헤리티지 내러티브형</h3>
+            <p class="tpl-desc">CTA 없는 브랜드 선언 히어로(국문 헤드라인 + EN 슬로건 병기), 제품보다 앞서는 스토리
+              챕터들, 조용한 페이드. 신도리코 홈의 골격을 그대로 이식했다.</p>
+            <p class="tpl-refs">ref. <em>신도리코</em> · 네이버 · 카카오 · 우아한형제들 · Lush</p>
+            <span class="swatches"><i style="background:#FFFFFF"></i><i style="background:#17191D"></i><i style="background:#C8351F"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
           </span>
         </a>
       </article>
 
-      <article class="fx-card tpl-card">
+      <article class="fx-card tpl-card reveal">
+        <a href="templates/editorial.html" style="display:flex;flex-direction:column;flex:1">
+          <span class="prev" style="background:#F0EEE6"><span class="t" style="color:#1F1D1A;font-family:'Noto Serif KR',serif;font-weight:600;font-style:italic">편집될 때, 이야기가 된다</span></span>
+          <span class="tpl-body">
+            <span class="tpl-no">TYPE 5</span>
+            <h3 class="tpl-title">콰이어트 에디토리얼형</h3>
+            <p class="tpl-desc">아이보리 그라운드에 세리프 디스플레이, 테라코타 한 색. 카피가 이미지보다 먼저 오고
+              모션은 느린 페이드뿐 — 여백과 타이포가 신뢰를 만든다.</p>
+            <p class="tpl-refs">ref. <em>Aesop</em> · 무인양품 · Anthropic · Patagonia · Freitag</p>
+            <span class="swatches"><i style="background:#F0EEE6"></i><i style="background:#B0552F"></i><i style="background:#1F1D1A"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
+          </span>
+        </a>
+      </article>
+
+      <article class="fx-card tpl-card reveal">
         <a href="templates/curation.html" style="display:flex;flex-direction:column;flex:1">
-          <span class="fx-frame"><img src="img/work-hfk-content-800.webp" alt="취향 큐레이션형 미리보기" loading="lazy"><span class="fx-glow"></span><span class="fx-cta">샘플 열기 →</span></span>
+          <span class="prev" style="background:#FFFFFF"><span class="t" style="color:#222">어떤 <span style="color:#FF385C">경험</span>을 찾으세요?</span></span>
           <span class="tpl-body">
-            <span class="tpl-letter">TEMPLATE E</span>
-            <h3 class="tpl-title">취향 큐레이션형</h3>
-            <p class="tpl-desc">물건이 아니라 안목과 맥락을 팝니다. ‘장면’ 단위의 필터 탐색,
-              카드마다 붙는 큐레이터의 ‘왜 이것인가’ 노트 — 좁고 깊게 파는 목적지 브랜드의 유형.</p>
-            <p class="tpl-basis" data-basis="E">책 속 근거 — <em>2장 ‘관점을 큐레이션하는 브랜드’, 9장 ‘경험과 큐레이션의 교집합’</em>
-              (흑심 · 시시호시 · 퍼멘티드 고스트 · 파르품삼각).</p>
-            <span class="tpl-feats"><span>장면 필터</span><span>스태거 등장</span><span>큐레이터 노트</span><span>역방향 마퀴</span></span>
-            <span class="tpl-open">샘플 보기 →</span>
+            <span class="tpl-no">TYPE 6</span>
+            <h3 class="tpl-title">커머스 큐레이션형</h3>
+            <p class="tpl-desc">마케팅 히어로 대신 검색바와 카테고리 칩이 첫 화면. 페이지의 본체는 찜 버튼 달린
+              카드 그리드 — 발견이 곧 콘텐츠다.</p>
+            <p class="tpl-refs">ref. <em>Airbnb</em> · IKEA · 29CM · 이니스프리</p>
+            <span class="swatches"><i style="background:#FFFFFF"></i><i style="background:#FF385C"></i><i style="background:#F7F7F7"></i></span>
+            <span class="tpl-open">샘플 열기 →</span>
           </span>
         </a>
       </article>
@@ -176,39 +199,67 @@
   </div>
 </section>
 
-<section id="quotes" class="reveal" style="padding-top:0">
+<section id="brands" style="padding-top:0">
   <div class="container">
-    <div class="center"><p class="section-label">From the Book</p>
-    <h2 class="section-title">원고에서 가져온 문장들</h2></div>
-    <div class="quote-row">
-      <blockquote class="bq reveal">“작은 브랜드의 무기는 자본이 아니라 <em>‘진심의 밀도’</em>라는 것.”</blockquote>
-      <blockquote class="bq reveal">“브랜드의 힘은 자본의 크기가 아니라 <em>‘본질의 깊이’</em>에서 나온다.”</blockquote>
-      <blockquote class="bq reveal">“스몰브랜드는 트렌드가 아니라 <em>시대의 응답</em>이다.”</blockquote>
+    <div class="center"><p class="section-label">Research</p>
+    <h2 class="section-title">분석한 브랜드 30 — 유형 매트릭스</h2></div>
+    <div class="matrix-wrap reveal">
+      <table class="matrix">
+        <thead><tr><th>브랜드</th><th>유형</th><th>시그니처 패턴</th></tr></thead>
+        <tbody>
+          <tr><td><b>Nike</b></td><td><span class="type-chip" style="background:#D6FF3F;color:#0A0A0A">1 임팩트</span></td><td>올캡스 슬로건 히어로 + 캠페인 블록 스택 + 대형 상품 그리드</td></tr>
+          <tr><td><b>Gentle Monster</b></td><td><span class="type-chip" style="background:#D6FF3F;color:#0A0A0A">1 임팩트</span></td><td>비디오 히어로 캐러셀, 초현실 캠페인 쇼룸</td></tr>
+          <tr><td><b>Red Bull</b></td><td><span class="type-chip" style="background:#D6FF3F;color:#0A0A0A">1 임팩트</span></td><td>미디어 포털 — 리드 스토리 + 버티컬별 콘텐츠 카드</td></tr>
+          <tr><td><b>무신사</b></td><td><span class="type-chip" style="background:#D6FF3F;color:#0A0A0A">1 임팩트</span></td><td>블랙 크롬 + 고밀도 랭킹·발매 피드</td></tr>
+          <tr><td><b>Spotify</b></td><td><span class="type-chip" style="background:#D6FF3F;color:#0A0A0A">1 임팩트</span></td><td>앱이 곧 랜딩 — 다크 그라운드 콘텐츠 그리드</td></tr>
+          <tr><td><b>Apple</b></td><td><span class="type-chip" style="background:#0071E3;color:#fff">2 몰입</span></td><td>중앙 정렬 프로모 히어로 스택, 제품 사진이 레이아웃</td></tr>
+          <tr><td><b>Tesla</b></td><td><span class="type-chip" style="background:#0071E3;color:#fff">2 몰입</span></td><td>제품당 풀스크린 슬라이드 + 고스트 듀얼 CTA</td></tr>
+          <tr><td><b>현대카드</b></td><td><span class="type-chip" style="background:#0071E3;color:#fff">2 몰입</span></td><td>카드 실물이 히어로 — 디자인 시스템 카탈로그</td></tr>
+          <tr><td><b>LG전자</b></td><td><span class="type-chip" style="background:#0071E3;color:#fff">2 몰입</span></td><td>브랜드숍 — 신제품 쇼케이스 + 구독 퍼널</td></tr>
+          <tr><td><b>유니클로</b></td><td><span class="type-chip" style="background:#0071E3;color:#fff">2 몰입</span></td><td>LifeWear 캠페인 배너 + 절제된 그리드</td></tr>
+          <tr><td><b>Stripe</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>그라디언트 캔버스 + 듀얼 CTA + 벤토 그리드의 교과서</td></tr>
+          <tr><td><b>토스</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>풀뷰포트 피처 챕터 + 스크롤 구동 애니메이션</td></tr>
+          <tr><td><b>Notion</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>일러스트 카드 + 탭 피처 + 후기 캐러셀</td></tr>
+          <tr><td><b>Figma</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>멀티 컬러 액센트 + 커뮤니티 템플릿 캐러셀</td></tr>
+          <tr><td><b>Linear</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>다크 그라운드 + 제품 UI 스크린샷 히어로</td></tr>
+          <tr><td><b>Vercel</b></td><td><span class="type-chip" style="background:#635BFF;color:#fff">3 SaaS</span></td><td>흑백 듀오톤 + 모노 타이포 개발자 브랜드</td></tr>
+          <tr><td><b>신도리코</b></td><td><span class="type-chip" style="background:#C8351F;color:#fff">4 내러티브</span></td><td>CTA 없는 슬로건 히어로, 스토리 6개 섹션 뒤에야 제품</td></tr>
+          <tr><td><b>네이버</b></td><td><span class="type-chip" style="background:#C8351F;color:#fff">4 내러티브</span></td><td>IR 허브 — 주가 티커 + 뉴스 그리드</td></tr>
+          <tr><td><b>카카오</b></td><td><span class="type-chip" style="background:#C8351F;color:#fff">4 내러티브</span></td><td>패럴랙스 스토리 캐러셀 + 서비스 타일, 다크모드</td></tr>
+          <tr><td><b>우아한형제들</b></td><td><span class="type-chip" style="background:#C8351F;color:#fff">4 내러티브</span></td><td>캐릭터·전용 서체가 브랜드인 컬처 페이지</td></tr>
+          <tr><td><b>Lush</b></td><td><span class="type-chip" style="background:#C8351F;color:#fff">4 내러티브</span></td><td>가치 선언 히어로 + 임팩트 타임라인</td></tr>
+          <tr><td><b>Aesop</b></td><td><span class="type-chip" style="background:#B0552F;color:#fff">5 에디토리얼</span></td><td>파치먼트 그라운드, 세리프, 문학적 카피 — 모션 거의 無</td></tr>
+          <tr><td><b>무인양품</b></td><td><span class="type-chip" style="background:#B0552F;color:#fff">5 에디토리얼</span></td><td>조용한 카탈로그 — 균일한 작은 타이포, 낮은 위계</td></tr>
+          <tr><td><b>Anthropic</b></td><td><span class="type-chip" style="background:#B0552F;color:#fff">5 에디토리얼</span></td><td>아이보리 + 세리프 선언 히어로, 일러스트 액센트</td></tr>
+          <tr><td><b>Patagonia</b></td><td><span class="type-chip" style="background:#B0552F;color:#fff">5 에디토리얼</span></td><td>사진 히어로 + 미션 카피, 스토리가 상품보다 많다</td></tr>
+          <tr><td><b>Freitag</b></td><td><span class="type-chip" style="background:#B0552F;color:#fff">5 에디토리얼</span></td><td>인더스트리얼 유틸리티 — 모노 타이포 + 순환 서사</td></tr>
+          <tr><td><b>Airbnb</b></td><td><span class="type-chip" style="background:#FF385C;color:#fff">6 큐레이션</span></td><td>검색바가 히어로, 무한 카드 그리드 + 위시 하트</td></tr>
+          <tr><td><b>IKEA</b></td><td><span class="type-chip" style="background:#FF385C;color:#fff">6 큐레이션</span></td><td>카드 카탈로그 — 브랜드색을 기능적 사이니지로</td></tr>
+          <tr><td><b>29CM</b></td><td><span class="type-chip" style="background:#FF385C;color:#fff">6 큐레이션</span></td><td>매거진형 쇼케이스 블록 — 에디토리얼 커머스</td></tr>
+          <tr><td><b>이니스프리</b></td><td><span class="type-chip" style="background:#FF385C;color:#fff">6 큐레이션</span></td><td>시즌 캠페인 배너 엔진 + AI 진단 훅</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<section id="method" class="reveal" style="padding-top:0">
+<section id="method" style="padding-top:0">
   <div class="container">
     <div class="center"><p class="section-label">Method</p>
-    <h2 class="section-title">이 쇼케이스가 만들어진 방법</h2></div>
-    <div class="method">
-      <div class="method-step"><span class="method-num">1</span><div>
-        <h3>레퍼런스 학습</h3>
-        <p>「작은 브랜드 전성시대가 온다」 원고 193p, 40여 개 브랜드 사례(한아조·흑심·글로니·그릭데이·밑미·왁타버스 등)를 분석해 홈페이지 전략을 다섯 유형으로 정리했습니다.</p>
-      </div></div>
-      <div class="method-step"><span class="method-num">2</span><div>
-        <h3>디자인 토큰 유지</h3>
-        <p>pertential100.com의 다크 그린(#1B4332) + 베이지(#E8D9BE) 팔레트, pill 형태 언어, 카드 문법을 그대로 씁니다.</p>
-      </div></div>
-      <div class="method-step"><span class="method-num">3</span><div>
-        <h3>인터랙션 이식</h3>
-        <p>goldenrecords.kr에서 분석한 스프링 티커·스크롤 리빌·무한 마퀴·카드 호버 5중주·스크롤 스파이를 바닐라 JS로 이식했습니다.</p>
-      </div></div>
-      <div class="method-step"><span class="method-num">4</span><div>
-        <h3>유형별 조합</h3>
-        <p>같은 토큰과 인터랙션이라도 무엇을 앞세우느냐에 따라 전혀 다른 홈페이지가 됩니다. 다섯 샘플은 그 조합의 차이를 보여줍니다.</p>
-      </div></div>
+    <h2 class="section-title">여섯 페이지가 공유하는 골격</h2></div>
+    <div class="method reveal">
+      <div class="method-step"><span class="method-num">1</span>
+        <div><h3>하나의 콘텐츠, 유형별 문법</h3>
+        <p>모든 샘플은 같은 인물·같은 실적·같은 이미지 13장을 쓴다. 달라지는 것은 팔레트, 타이포, 레이아웃 골격, 모션의 속도뿐 — 유형의 힘을 통제 변인으로 비교할 수 있다.</p></div></div>
+      <div class="method-step"><span class="method-num">2</span>
+        <div><h3>토큰 기반 테마</h3>
+        <p>공용 CSS는 구조만 갖고, 각 페이지가 :root 토큰(배경·액센트·서체·라운딩)을 재정의한다. 인터랙션 JS는 페이지의 --fx-accent를 읽어 글로우·티커·스파크 색을 맞춘다.</p></div></div>
+      <div class="method-step"><span class="method-num">3</span>
+        <div><h3>공통 인터랙션 키트</h3>
+        <p>스크롤 리빌 · 스프링 숫자 티커 · 무한 마퀴 · 카드 호버 · 필터 스태거 등장 · 스크롤 스파이 — goldenrecords.kr 분석에서 이식한 바닐라 JS를 유형별 속도·색으로 변주한다.</p></div></div>
+      <div class="method-step"><span class="method-num">4</span>
+        <div><h3>30개 브랜드 리서치</h3>
+        <p>글로벌 테크 10 · 한국 브랜드 10 · 라이프스타일 10의 실제 랜딩을 수집·분석해 히어로 패턴, 섹션 순서, 색 전략, 타이포 스케일, 모션 문법으로 유형을 도출했다.</p></div></div>
     </div>
   </div>
 </section>
@@ -216,7 +267,7 @@
 </main>
 
 <footer>
-  <div class="container">브랜딩 홈페이지 템플릿 쇼케이스 · 디자인 토큰 — pertential100.com · 인터랙션 — goldenrecords.kr 분석 이식</div>
+  <div class="container">브랜딩 랜딩페이지 유형 쇼케이스 — 30개 브랜드 분석 · 콘텐츠 ⓒ 조재형 (pertential100.com) · 인터랙션 ref. goldenrecords.kr</div>
 </footer>
 
 <script src="assets/fx.js"></script>
