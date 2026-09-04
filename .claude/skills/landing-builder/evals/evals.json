@@ -1,0 +1,31 @@
+{
+  "skill_name": "landing-builder",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "우리 동네 디저트 로스터리 '모루커피' 랜딩페이지 만들어줘. 차분하고 감성적인 느낌이면 좋겠어. 사진은 아직 없어. 2019년부터 운영했고, 시그니처는 흑임자 휘낭시에랑 싱글오리진 핸드드립이야. 네이버 평점 4.8이고 인스타는 @moru.coffee, 문의는 카톡채널 '모루커피'로 받아. 결과물은 index.html 하나로 만들어줘.",
+      "expected_output": "콰이어트 에디토리얼형(유형 5) 성격의 정적 랜딩 — 아이보리 계열, 세리프 디스플레이, 이미지 없이 성립, 준 데이터(2019, 4.8, 메뉴, 채널)만 사용",
+      "files": [],
+      "assertions": [
+        "uses-only-provided-facts: 페이지의 모든 사실·숫자(연도, 평점, 메뉴, 채널)가 프롬프트에서 주어진 것만 사용됨 — 창작된 수치·후기·수상 이력이 없다",
+        "calm-single-accent-palette: 차분한 저채도 그라운드에 액센트 색상이 정확히 1개 계열로 유지된다",
+        "scroll-reveal-with-reduced-motion: 등장 애니메이션이 IntersectionObserver 기반이고 prefers-reduced-motion을 존중한다",
+        "responsive-mobile-rules: 768px 이하 미디어쿼리로 레이아웃이 조정된다",
+        "works-without-images: 존재하지 않는 이미지 참조가 없고 사진 없이 페이지가 완결된다"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "AI 회의록 SaaS '미닛츠(Minutes)' 랜딩페이지 뽑아줘. 무료체험 신청 전환이 목표야. 데이터: 도입팀 1,200팀+, 회의록 작성 시간 평균 92% 절감, 주간 회의 34만 건 처리, ISO 27001 인증. 고객사로 두들린·페이플로·스튜디오냅 있음. CTA는 '14일 무료체험'. index.html 하나로 만들어줘.",
+      "expected_output": "전환형 SaaS(유형 3) 성격의 정적 랜딩 — 듀얼 CTA 히어로, 로고 스트립, 피처 그리드, 수치 밴드, 준 데이터만 사용",
+      "files": [],
+      "assertions": [
+        "uses-only-provided-metrics: 1,200팀+/92%/34만 건/ISO 27001/3개 고객사 외 창작된 수치·실명 후기가 없다",
+        "primary-cta-consistent: 히어로에 '14일 무료체험' CTA가 있고 페이지 마지막에 같은 문구로 반복된다",
+        "conversion-funnel-order: 히어로 → 신뢰(고객사) → 기능 → 수치 → 마감 CTA의 퍼널 순서를 따른다",
+        "scroll-reveal-with-reduced-motion: 등장 애니메이션이 IntersectionObserver 기반이고 prefers-reduced-motion을 존중한다",
+        "responsive-mobile-rules: 768px 이하 미디어쿼리로 레이아웃이 조정된다"
+      ]
+    }
+  ]
+}

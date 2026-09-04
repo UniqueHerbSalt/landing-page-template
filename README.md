@@ -21,6 +21,16 @@
 | `assets/fx.js` | 공용 인터랙션 (goldenrecords.kr 실측 파라미터) | |
 | `img/` | pertential100.com 이미지 로컬 사본 (핫링크 차단 대응) | |
 
+## landing-builder 스킬
+
+이 쇼케이스의 방법론을 재사용 가능한 스킬로 정리해 `.claude/skills/landing-builder/`에 두었다.
+이 저장소에서 Claude Code 세션을 열면 자동으로 로드되고, "랜딩페이지 만들어줘" 계열 요청에 발동한다.
+
+- `SKILL.md` — 트리거 조건과 5단계 제작 워크플로우
+- `references/archetypes.md` — 6유형 상세 스펙(팔레트 공식·섹션 골격·타이포·모션·카피 톤·흔한 실수)
+- `assets/` — 인터랙션 키트 (이 저장소 `assets/`와 동일, 스킬 단독 배포를 위한 사본)
+- `evals/` — 테스트 요청·채점 기준과 개선 기록. 스킬을 고칠 때 여기서부터 시작한다
+
 ## 테마 시스템
 
 `assets/shared.css`는 구조(네비·마퀴·티커·카드·필터)만 갖고, 각 템플릿이 `:root` 토큰을 재정의합니다:
